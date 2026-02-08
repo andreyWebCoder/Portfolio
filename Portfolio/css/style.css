@@ -1438,13 +1438,13 @@ body.ie ._ibg img {
     color: #fff;
   }
 }
-.footer__link span {
-  font-weight: 700;
-}
 @media (max-width: 479.98px) {
   .footer__link {
     font-size: 14px;
   }
+}
+.footer__link-name {
+  font-weight: 700;
 }
 
 .progress {

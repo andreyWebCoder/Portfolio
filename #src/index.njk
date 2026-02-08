@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('_head.html',{
-"title":""
-})
+	{% set title = "Главная страница" %}
+	{% include "html/includes/_head.njk" %}
 
-<body>
+	<body>
 		<div class="progress"></div>
 		<div class="wrapper">
-		@@include('_header.html',{})
-		<main class="page">
+			{% include "html/includes/_header.njk" %}
+			<main class="page">
 				<!-- ===================стрелка вверх============== -->
 				<a href="#header" class="page__arrow _goto"></a>
 				<section class="page__portfolio portfolio-page">
@@ -332,9 +331,9 @@
 
 				</section>
 			</main>
-		@@include('_footer.html',{})
-	</div>
-	@@include('_js.html',{})
-</body>
+			{% include "html/includes/_footer.njk" %}
+		</div>
+		{% include "html/includes/_js.njk" %}
+	</body>
 
 </html>

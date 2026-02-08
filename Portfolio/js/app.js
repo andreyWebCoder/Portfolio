@@ -358,6 +358,8 @@ const langArr = {
         "ua": "детально про товар",
     }, 
 }
+document.getElementById("year").textContent = new Date().getFullYear();
+
 let scene = document.getElementById("scene");
 let parallaxInstance = new Parallax(scene, {
 	hoverOnly: true,

@@ -1,5 +1,6 @@
 @@include('files/function.js', {})
 @@include('files/lang.js', {})
+@@include('files/date-footer.js', {})
 @@include('files/script.js', {})
 @@include('files/scroll.js', {})
 @@include('files/isotope.js', {})

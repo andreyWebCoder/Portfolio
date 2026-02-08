@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":""
+})
+
+<body>
+		<div class="progress"></div>
+		<div class="wrapper">
+		@@include('_header.html',{})
+		<main class="page">
+				<!-- ===================стрелка вверх============== -->
+				<a href="#header" class="page__arrow _goto"></a>
+				<section class="page__portfolio portfolio-page">
+					<div class="portfolio-page__container _container">
+						<h2 class="portfolio-page__title title">Мои работы</h2>
+						<div class="portfolio-page__nav nav-portfolio">
+							<ul class="nav-portfolio__list" id="myDIV">
+								<li class="nav-portfolio__item">
+									<a href="#" class="nav-portfolio__link active" data-filter="*">Все работы</a>
+								</li>
+								<li class="nav-portfolio__item">
+									<a href="#" class="nav-portfolio__link" data-filter=".lending">Лендинги</a>
+								</li>
+								<li class="nav-portfolio__item">
+									<a href="#" class="nav-portfolio__link " data-filter=".many-pages">Многостраничные сайты</a>
+								</li>
+								<li class="nav-portfolio__item">
+									<a href="#" class="nav-portfolio__link" data-filter=".animations">Анимации Css, Js</a>
+								</li>
+								<li class="nav-portfolio__item">
+									<a href="#" class="nav-portfolio__link" data-filter=".jquery">jQuery</a>
+								</li>
+							</ul>
+						</div>
+						<div class="portfolio-page__content">
+							<div class="portfolio-page__row lending animations">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-1">
+										<img src="img/portfolio/Site1.jpg" alt="Bouncy">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Bouncy/" target="_blank">
+											<span>Bouncy</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+										<a href="https://frilanser-of-ua.github.io/Bouncy/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending animations">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-2">
+										<img src="img/portfolio/Site3.jpg" alt="Frispes">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Frispes/" target="_blank">
+											<span>Frispes</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+										<a href="https://frilanser-of-ua.github.io/Frispes/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+							<div class="portfolio-page__row lending">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-3">
+										<img src="img/portfolio/Site2.jpg" alt="Finance">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Finance/" target="_blank">
+											<span>Finance</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+										<a href="https://frilanser-of-ua.github.io/Finance/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+							<div class="portfolio-page__row lending animations">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-4">
+										<img src="img/portfolio/Site4.jpg" alt="Guurmann">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Guurmann/" target="_blank">
+											<span>Guurmann</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+										<a href="https://frilanser-of-ua.github.io/Guurmann/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-5">
+										<img src="img/portfolio/Site5.jpg" alt="Hungry">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/hungry/" target="_blank">
+											<span>Hungry</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+										<a href="https://frilanser-of-ua.github.io/hungry/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row many-pages">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-6">
+										<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/avenue-fashion-six-page/" target="_blank">
+											<span>Аvenue</span>-fashion(six page)</a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+										<a href="https://frilanser-of-ua.github.io/avenue-fashion-six-page/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending jquery">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-7">
+										<img src="img/portfolio/Site7.jpg" alt="Sportshold">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Sportshold/" target="_blank">
+											<span>Sportshold</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+										<a href="https://frilanser-of-ua.github.io/Sportshold/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending animations jquery">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-8">
+										<img src="img/portfolio/Site8.jpg" alt="Yoga">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Yoga/" target="_blank">
+											<span>Yoga</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+										<a href="https://frilanser-of-ua.github.io/Yoga/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-9">
+										<img src="img/portfolio/Site9.jpg" alt="Table">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/gorizontal-scroll-table/" target="_blank">
+											<span>Table</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+										<a href="https://frilanser-of-ua.github.io/gorizontal-scroll-table/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="portfolio-page__row lending many-pages">
+								<div class="portfolio-page__item">
+									<div class="portfolio-page__img _ibg portfolio-page__img_height-10">
+										<img src="img/portfolio/SIte10.jpg" alt="Table">
+									</div>
+									<div class="portfolio-page__hover">
+										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Uzb-five-page/" target="_blank">
+											<span>Ubz</span></a>
+										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+										<a href="https://frilanser-of-ua.github.io/Uzb-five-page/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="page__about about-page">
+					<div class="about-page__container _container">
+						<h2 class="about-page__title title">Обо мне</h2>
+						<p class="about-page__label"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
+						<div class="about-page__study study-about-page">
+							<div class="study-about-page__img _ibg">
+								<img src="img/about/Sertifikat.png" alt="Сертификат">
+							</div>
+							<div class="study-about-page__see">
+								<a href="https://fls.guru/certificate.html?%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9_%D0%A8%D1%83%D0%BF%D0%B8%D0%BA_Andrey2020" class="study-about-page__linck btn" target="_blank">
+									<span class="btn__text">Посмотреть</span>
+									<span class="btn__waves"></span>
+								</a>
+							</div>
+						</div>
+						<div class="about-page__tabs tabs-about-page _tabs">
+							<nav class="tabs-about-page__nav">
+								<div class="tabs-about-page__item _tabs-item _active">
+									<div class="tabs-about-page__img">
+										<img src="img/icons/html-5.svg" alt="icon html">
+									</div>
+								</div>
+								<div class="tabs-about-page__item _tabs-item">
+									<div class="tabs-about-page__img">
+										<img src="img/icons/css3.svg" alt="icon css">
+									</div>
+								</div>
+								<div class="tabs-about-page__item _tabs-item">
+									<div class="tabs-about-page__img">
+										<img src="img/icons/javascript.svg" alt="icon js">
+									</div>
+								</div>
+								<div class="tabs-about-page__item _tabs-item">
+									<div class="tabs-about-page__img">
+										<img src="img/icons/figma.svg" alt="icon figma">
+									</div>
+								</div>
+							</nav>
+							<div class="tabs-about-page__body">
+								<div class="tabs-about-page__content _tabs-block _active">
+									<h3 class="tabs-about-page__label">HTML5</h3>
+									<p class="tabs-about-page__text">Валидный, структурированный Html код. Применяю: блочную верстку, семантику, методологию BEM. </p>
+								</div>
+								<div class="tabs-about-page__content _tabs-block">
+									<h3 class="tabs-about-page__label">CSS3/SCSS</h3>
+									<p class="tabs-about-page__text">Применяю: валидные кроссбраузерные свойства CSS3, flexbox, grid layout, анимации, responsive верстка. Так же работаю на препроцесоре SCSS. Использую свою сборку Gulp.</p>
+								</div>
+								<div class="tabs-about-page__content _tabs-block">
+									<h3 class="tabs-about-page__label">js</h3>
+									<p class="tabs-about-page__text">Применяю: различные плагины javascript, а так же написание чистого кода. Использую библиотеку jquery, а также различные плагины на ее базе. Добавление анимаций c помощью js. Использую свою сборку Gulp.</p>
+								</div>
+								<div class="tabs-about-page__content _tabs-block">
+									<h3 class="tabs-about-page__label">Макеты</h3>
+									<p class="tabs-about-page__text">Работаю c макетами figma. А также: Adobe Photoshop с расширением psd. Работаю с различными другими графическими редакторами.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="about-page__paralax paralax" id="scene">
+						<div class="paralax__item" data-depth="0.2">
+							<img class="paralax__img paralax__img_position-1" src="img/icons/css3.svg" alt="icons css3">
+						</div>
+						<div class="paralax__item" data-depth="0.4">
+							<img class="paralax__img paralax__img_position-2" src="img/icons/html-5.svg" alt="icon html5">
+						</div>
+						<div class="paralax__item" data-depth="0.4">
+							<img class="paralax__img paralax__img_position-3" src="img/icons/javascript.svg" alt="icon javascript">
+						</div>
+						<div class="paralax__item" data-depth="0.2">
+							<img class="paralax__img paralax__img_position-4" src="img/icons/figma.svg" alt="icon figma">
+						</div>
+						<div class="paralax__item" data-depth="0.6">
+							<img class="paralax__img paralax__img_position-5" src="img/icons/gulp.svg" alt="icon gulp">
+						</div>
+						<div class="paralax__item" data-depth="0.2">
+							<img class="paralax__img paralax__img_position-6" src="img/icons/git.svg" alt="icon git">
+						</div>
+						<div class="paralax__item" data-depth="0.2">
+							<img class="paralax__img paralax__img_position-9" src="img/icons/sass-black.svg" alt="icon sass-black">
+						</div>
+						<div class="paralax__item" data-depth="0.3">
+							<img class="paralax__img paralax__img_position-10" src="img/icons/jquery.svg" alt="icon jquery">
+						</div>
+						<div class="paralax__item" data-depth="0.3">
+							<img class="paralax__img paralax__img_position-11" src="img/icons/js-black.svg" alt="icon js-black">
+						</div>
+						<div class="paralax__item" data-depth="0.1">
+							<img class="paralax__img paralax__img_position-14" src="img/icons/sublime-text.svg" alt="icon sublime-text">
+						</div>
+						<div class="paralax__item" data-depth="0.1">
+							<img class="paralax__img paralax__img_position-15" src="img/icons/visual-studio-code.svg" alt="icon visual-studio-code">
+						</div>
+						<div class="paralax__item" data-depth="0.1">
+							<img class="paralax__img paralax__img_position-16" src="img/icons/breckets.svg" alt="icon breckets">
+						</div>
+					</div>
+				</section>
+				<section class="page__contacts contacts-page">
+					<div class="contacts-page__container _container">
+						<h2 class="contacts-page__title title title_white">Контакты</h2>
+						<div class="contacts-page__links">
+							<div class="contacts-page__item">
+								<a href="tel:+380967591329" class="contacts-page__link">
+									<span class="contacts-page__icon _icon-call"></span>
+									<span class="contacts-page__text">
+										<span>Позвонить:</span> +38&nbsp;(096)&nbsp;75-&nbsp;91-&nbsp;329
+								</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="mailto:foresteraws@gmail.com" class="contacts-page__link">
+									<span class="contacts-page__icon _icon-mail"></span>
+									<span class="contacts-page__text">
+										<span>Написать: </span>foresteraws@gmail.com</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="https://www.facebook.com/profile.php?id=100004303727534" class="contacts-page__link" target="_blank">
+									<img src="img/icons/facebook.svg" alt="icon facebook">
+									<span class="contacts-page__text">Facebook</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="https://t.me/Frylanser" class="contacts-page__link" target="_blank">
+									<img src="img/icons/telegram.svg" alt="icon telegram">
+									<span class="contacts-page__text">Telegram</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href=" https://wa.me/+380967591329" class="contacts-page__link" target="_blank">
+									<img src="img/icons/whatsapp.svg" alt="icon whatsapp">
+									<span class="contacts-page__text">WhatsApp</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="https://www.instagram.com/andrey_shupyk/?hl=ru" class="contacts-page__link" target="_blank">
+									<img src="img/icons/instagram.svg" alt="icon instagram">
+									<span class="contacts-page__text">Instagram</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="https://github.com/Frilanser-of-UA?tab=repositories" class="contacts-page__link" target="_blank">
+									<img src="img/icons/git-hub.svg" alt="icon git-hub">
+									<span class="contacts-page__text">GitHub</span>
+								</a>
+							</div>
+							<div class="contacts-page__item">
+								<a href="Skype:s_andrey_w?chat" class="contacts-page__link" target="_blank">
+									<img src="img/icons/scape.svg" alt="icon Skype">
+									<span class="contacts-page__text">Skype</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+				</section>
+			</main>
+		@@include('_footer.html',{})
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+//<SELECT (sel+tab)>====================================================================================================
+.select {
+    position: relative;
+    // .select__item
+    &__item {
+        position: relative;
+    }
+    // .select__title
+    &__title {
+        color: #777777;
+        cursor: pointer;
+        background-color: #333333;
+    }
+    // .select__value
+    &__value {
+        display: flex;
+        font-size: 13px;
+        height: 30px;
+        padding: 0px 15px 0px 5px;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        span {
+            height: 1em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        &:before {
+            content: "\e900";
+            font-family: "icons";
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            font-size: 13px;
+            margin: 0px 0px 0px 8px;
+        }
+    }
+    &__input {
+        width: 100%;
+        background-color: transparent;
+        height: 100%;
+    }
+    // .select__options
+    &__options {
+        display: none;
+        position: absolute;
+        top: 29px;
+        border-radius: 0 0 4px 4px;
+        min-width: 100%;
+        left: 0;
+        background-color: #333333;
+        border-top: 0;
+        border-top: 0;
+        font-size: 13px;
+        padding: 10px 0px 5px 0px;
+        @media (max-width: $md2+px) {
+            font-size: 18px;
+        }
+    }
+    // .select__option
+    &__option {
+        cursor: pointer;
+        padding: 5px 15px;
+        margin: 0px 0px 0px 0px;
+        @media (min-width: 992px) {
+            &:hover {
+                background: #d9d9d9;
+            }
+        }
+    }
+    &._active {
+        z-index: 5;
+        .select__value {
+            &:before {
+                transform: rotate(-180deg);
+            }
+        }
+        .select__options {
+            display: block;
+        }
+    }
+}
+//</SELECT>====================================================================================================
+.header__select {
+    // width: 300px;
+    color: #333333;
+    position: relative;
+}

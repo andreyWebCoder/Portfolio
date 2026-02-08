@@ -61,6 +61,13 @@
   content: "\e905";
 }
 
+:root {
+  --wd-white: #fff;
+  --wd-black: #000;
+  --wd-gray: #b2b3b3;
+  --wd-blue: #007bff;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -154,7 +161,7 @@ h6 {
 }
 
 body {
-  color: #000;
+  color: var(--wd-black);
   font-size: 18px;
   font-weight: 400;
 }
@@ -170,6 +177,24 @@ body._lock {
   flex-direction: column;
   position: relative;
 }
+.page {
+  flex: 1 1 auto;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(233, 50, 50);
+  z-index: 10;
+  display: none;
+}
+.progress._scroll {
+  display: block;
+}
+
 ._container {
   max-width: 1170px;
   margin: 0 auto;
@@ -771,36 +796,46 @@ body.ie ._ibg img {
   visibility: hidden;
   opacity: 0;
 }
+@media (any-hover: hover) {
+  .portfolio-page__hover:hover .portfolio-page__label {
+    color: #0cecbc;
+  }
+  .portfolio-page__hover:hover .portfolio-page__label span::before {
+    left: 100%;
+    transform: translate(-100%, 0);
+    background-color: #0cecbc;
+  }
+}
 @media (max-width: 1182px) {
   .portfolio-page__hover {
     padding: 5px;
   }
 }
-.portfolio-page__label-linck {
+.portfolio-page__label {
   letter-spacing: 0.2em;
   color: #19bd9a;
   display: inline-block;
   transition: all 0.3s ease 0s;
 }
 @media (max-width: 1182px) {
-  .portfolio-page__label-linck {
+  .portfolio-page__label {
     font-size: 14px;
   }
 }
 @media (max-width: 479.98px) {
-  .portfolio-page__label-linck {
+  .portfolio-page__label {
     font-size: 13px;
   }
 }
 @media (max-width: 620px) {
-  .portfolio-page__label-linck {
+  .portfolio-page__label {
     line-height: 160%;
   }
 }
-.portfolio-page__label-linck span {
+.portfolio-page__label span {
   position: relative;
 }
-.portfolio-page__label-linck span::before {
+.portfolio-page__label span::before {
   content: "";
   height: 1px;
   background-color: #19bd9a;
@@ -811,18 +846,8 @@ body.ie ._ibg img {
   transition: all 0.6s ease 0s;
 }
 @media (max-width: 1182px) {
-  .portfolio-page__label-linck span::before {
+  .portfolio-page__label span::before {
     bottom: -5px;
-  }
-}
-@media (any-hover: hover) {
-  .portfolio-page__label-linck:hover {
-    color: #0cecbc;
-  }
-  .portfolio-page__label-linck:hover span::before {
-    left: 100%;
-    transform: translate(-100%, 0);
-    background-color: #0cecbc;
   }
 }
 .portfolio-page__text {
@@ -1445,22 +1470,4 @@ body.ie ._ibg img {
 }
 .footer__link-name {
   font-weight: 700;
-}
-
-.progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: rgb(233, 50, 50);
-  z-index: 10;
-  display: none;
-}
-.progress._scroll {
-  display: block;
-}
-
-.page {
-  flex: 1 1 auto;
 }

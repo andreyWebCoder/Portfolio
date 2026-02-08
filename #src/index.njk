@@ -1,3 +1,4 @@
+{% import "html/data/_indexData.njk" as data %}
 <!DOCTYPE html>
 <html lang="ru">
 	{% set title = "Главная страница" %}
@@ -15,161 +16,30 @@
 						<h2 class="portfolio-page__title title">Мои работы</h2>
 						<div class="portfolio-page__nav nav-portfolio">
 							<ul class="nav-portfolio__list" id="myDIV">
-								<li class="nav-portfolio__item">
-									<a href="#" class="nav-portfolio__link active" data-filter="*">Все работы</a>
-								</li>
-								<li class="nav-portfolio__item">
-									<a href="#" class="nav-portfolio__link" data-filter=".lending">Лендинги</a>
-								</li>
-								<li class="nav-portfolio__item">
-									<a href="#" class="nav-portfolio__link " data-filter=".many-pages">Многостраничные сайты</a>
-								</li>
-								<li class="nav-portfolio__item">
-									<a href="#" class="nav-portfolio__link" data-filter=".animations">Анимации Css, Js</a>
-								</li>
-								<li class="nav-portfolio__item">
-									<a href="#" class="nav-portfolio__link" data-filter=".jquery">jQuery</a>
-								</li>
+								{% for nav in data.navListData %}
+									<li class="nav-portfolio__item">
+										<a href="#" class="nav-portfolio__link" data-filter="{{ nav.filter }}">{{ nav.text }}</a>
+									</li>
+								{% endfor %}
 							</ul>
 						</div>
 						<div class="portfolio-page__content">
-							<div class="portfolio-page__row lending animations">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-1">
-										<img src="img/portfolio/Site1.jpg" alt="Bouncy">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Bouncy/" target="_blank">
-											<span>Bouncy</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
-										<a href="https://frilanser-of-ua.github.io/Bouncy/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending animations">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-2">
-										<img src="img/portfolio/Site3.jpg" alt="Frispes">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Frispes/" target="_blank">
-											<span>Frispes</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
-										<a href="https://frilanser-of-ua.github.io/Frispes/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
+							{% for item in data.portfolioItems %}
+								<div class="portfolio-page__row lending animations">
+									<div class="portfolio-page__item">
+										<div class="portfolio-page__img _ibg {{ item.heightClass }}">
+											<img src="{{ item.img.src }}" alt="{{ item.img.alt }}" >
+										</div>
+										<a href="{{ item.link }}" class="portfolio-page__hover" target="_blank">
+											<div class="portfolio-page__label">
+												<span>{{ item.label }}</span>
+											</div>
+											<p class="portfolio-page__text">{{ item.text }}</p>
+											<span class="portfolio-page__label-btn">Посмотреть</span>
+										</a>
 									</div>
 								</div>
-							</div>
-							<div class="portfolio-page__row lending">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-3">
-										<img src="img/portfolio/Site2.jpg" alt="Finance">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Finance/" target="_blank">
-											<span>Finance</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
-										<a href="https://frilanser-of-ua.github.io/Finance/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-							<div class="portfolio-page__row lending animations">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-4">
-										<img src="img/portfolio/Site4.jpg" alt="Guurmann">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Guurmann/" target="_blank">
-											<span>Guurmann</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
-										<a href="https://frilanser-of-ua.github.io/Guurmann/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-5">
-										<img src="img/portfolio/Site5.jpg" alt="Hungry">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/hungry/" target="_blank">
-											<span>Hungry</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
-										<a href="https://frilanser-of-ua.github.io/hungry/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row many-pages">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-6">
-										<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/avenue-fashion-six-page/" target="_blank">
-											<span>Аvenue</span>-fashion(six page)</a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
-										<a href="https://frilanser-of-ua.github.io/avenue-fashion-six-page/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending jquery">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-7">
-										<img src="img/portfolio/Site7.jpg" alt="Sportshold">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Sportshold/" target="_blank">
-											<span>Sportshold</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
-										<a href="https://frilanser-of-ua.github.io/Sportshold/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending animations jquery">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-8">
-										<img src="img/portfolio/Site8.jpg" alt="Yoga">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Yoga/" target="_blank">
-											<span>Yoga</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
-										<a href="https://frilanser-of-ua.github.io/Yoga/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-9">
-										<img src="img/portfolio/Site9.jpg" alt="Table">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/gorizontal-scroll-table/" target="_blank">
-											<span>Table</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
-										<a href="https://frilanser-of-ua.github.io/gorizontal-scroll-table/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="portfolio-page__row lending many-pages">
-								<div class="portfolio-page__item">
-									<div class="portfolio-page__img _ibg portfolio-page__img_height-10">
-										<img src="img/portfolio/SIte10.jpg" alt="Table">
-									</div>
-									<div class="portfolio-page__hover">
-										<a class="portfolio-page__label-linck" href="https://frilanser-of-ua.github.io/Uzb-five-page/" target="_blank">
-											<span>Ubz</span></a>
-										<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
-										<a href="https://frilanser-of-ua.github.io/Uzb-five-page/" class="portfolio-page__label-btn" target="_blank">Посмотреть</a>
-									</div>
-								</div>
-							</div>
+							{% endfor %}
 						</div>
 					</div>
 				</section>

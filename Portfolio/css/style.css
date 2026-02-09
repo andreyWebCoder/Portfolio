@@ -438,6 +438,12 @@ body._lock {
 .card {
   width: 100%;
   position: relative;
+  opacity: 0; /* Исходное состояние, чтобы не было мерцания до начала анимации */
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+.card.animate {
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 .card__item {
   position: relative;
@@ -586,6 +592,16 @@ body._lock {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 .title {
   font-size: 32px;
   font-weight: 700;

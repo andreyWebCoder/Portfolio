@@ -17,9 +17,22 @@ function updatePortfolio(isClick = false) {
 	const cardsToShow = filteredByCategory.slice(start, end);
 
 	container.innerHTML = '';
-	cardsToShow.forEach(card => container.appendChild(card));
 
-	// Важное условие: скроллим ТОЛЬКО если это был клик
+	cardsToShow.forEach((card, index) => {
+		// Сбрасываем старые анимации перед вставкой
+		card.classList.remove('animate');
+		card.style.animationDelay = '';
+
+		container.appendChild(card);
+
+		// Запускаем новую анимацию
+		setTimeout(() => {
+			// Эффект появления по очереди (лесенкой)
+			card.style.animationDelay = `${index * 0.05}s`; // 0.05s — более быстрый и динамичный темп
+			card.classList.add('animate');
+		}, 10);
+	});
+
 	if (isClick) {
 		const section = document.querySelector('.page__portfolio');
 		if (section) {

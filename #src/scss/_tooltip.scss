@@ -1,0 +1,46 @@
+@use "vars" as *;
+.tooltip-container {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip-box {
+	visibility: hidden;
+	opacity: 0;
+	font-size: 14px;
+	/* ПОЗИЦИЯ ВНИЗУ */
+	position: absolute;
+	top: calc(100% + 10px); /* Смещаем вниз от родителя + зазор */
+	left: 50%;
+	transform: translateX(-50%) translateY(-10px);
+
+	/* Стили */
+	width: max-content;
+	background-color: #333;
+	color: var(--wd-text);
+	padding: 6px;
+	border-radius: 6px;
+	z-index: 10;
+	transition: all 0.2s ease-in-out;
+}
+
+/* СТРЕЛОЧКА СВЕРХУ */
+.tooltip-box::after {
+	content: "";
+	position: absolute;
+	bottom: 100%; /* Прижимаем к верхнему краю тултипа */
+	left: 50%;
+	transform: translateX(-50%);
+
+	/* Рисуем треугольник, смотрящий вверх */
+	border-width: 6px;
+	border-style: solid;
+	border-color: transparent transparent #333 transparent; /* Цвет только снизу */
+}
+
+/* Ховер эффект */
+.tooltip-container:hover .tooltip-box {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}

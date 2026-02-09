@@ -2,5 +2,8 @@
 	--wd-white: #fff;
 	--wd-black: #000;
 	--wd-gray: #b2b3b3;
-	--wd-blue: #007bff;
+	--wd-primary: #3a799e;
+
+	--wd-text: var(--wd-black);
+	--wd-bg-body: var(--wd-white);
 }

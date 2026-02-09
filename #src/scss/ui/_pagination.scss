@@ -1,0 +1,102 @@
+@use "vars" as *;
+.pagination-btn {
+	cursor: pointer;
+	transition: all 0.3s ease;
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+	&.active {
+		background-color: #000; /* Ваш цвет */
+		color: #fff;
+	}
+}
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__btn {
+		border-radius: 50%;
+		width: 32px;
+		height: 32px;
+		color: black;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgb(129, 101, 101);
+			}
+		}
+
+		&.active {
+			border-color: rgb(218, 143, 143);
+		}
+
+		&:disabled {
+			color: #a4afc8;
+			pointer-events: none;
+		}
+
+		&_prev {
+			transform: rotate(90deg);
+		}
+
+		&_next {
+			transform: rotate(-90deg);
+		}
+	}
+
+	&__list {
+		display: flex;
+		margin: 0px 2px;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin: 0px 2px 0px 0px;
+		}
+	}
+
+	&__page {
+		letter-spacing: -0.02em;
+		line-height: 1;
+		color: black;
+		font-size: 16px;
+		height: 32px;
+		width: 32px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid transparent;
+		border-radius: 50%;
+		transition: all 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgb(129, 101, 101);
+			}
+		}
+
+		&.active {
+			border-color: rgb(218, 143, 143);
+			background-color: transparent;
+		}
+
+		&.disabled {
+			color: gray;
+			pointer-events: none;
+		}
+	}
+
+	&__dots {
+		letter-spacing: -0.02em;
+		line-height: 1;
+		color: black;
+		font-size: 16px;
+		height: 32px;
+		width: 32px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

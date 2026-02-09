@@ -7,11 +7,24 @@ let currentFilter = '*';
 if ('scrollRestoration' in history) {
 	history.scrollRestoration = 'manual';
 }
+function createBtn(text, className, disabled, onClick) {
+	const btn = document.createElement('button');
+	btn.type = 'button';
+	btn.textContent = text;
+	btn.className = className;
+	btn.disabled = disabled;
+
+	btn.addEventListener('click', onClick);
+
+	return btn;
+}
+
 function updatePortfolio(isClick = false) {
 	const filteredByCategory = allCards.filter(card => {
 		return currentFilter === '*' || card.matches(currentFilter);
 	});
-
+	console.log('filteredByCategory:', filteredByCategory);
+	console.log('isArray:', Array.isArray(filteredByCategory));
 	const start = (currentPage - 1) * itemsPerPage;
 	const end = start + itemsPerPage;
 	const cardsToShow = filteredByCategory.slice(start, end);
@@ -43,53 +56,63 @@ function updatePortfolio(isClick = false) {
 	renderPagination(filteredByCategory.length);
 }
 
-// Функция отрисовки кнопок
+
 function renderPagination(totalItems) {
-	const nav = document.getElementById('pagination');
-	if (!nav) return;
-	nav.innerHTML = '';
+	totalItems = Number(totalItems) || 0; // 🔥 ВАЖНО
+
+	let navWrapper = document.querySelector('.pagination-nav');
 
 	const pageCount = Math.ceil(totalItems / itemsPerPage);
-	if (pageCount <= 1) return;
 
-	// --- Кнопка НАЗАД ---
-	const prevBtn = document.createElement('button');
-	prevBtn.textContent = 'Назад';
-	prevBtn.className = 'prev-btn';
-	prevBtn.disabled = currentPage === 1; // Блокируем на первой странице
-	prevBtn.onclick = () => {
-		if (currentPage > 1) {
-			currentPage--;
-			updatePortfolio(true);
-		}
-	};
-	nav.appendChild(prevBtn);
-
-	// --- Цифры (ваш текущий цикл) ---
-	for (let i = 1; i <= pageCount; i++) {
-		const btn = document.createElement('button');
-		btn.textContent = i;
-		if (i === currentPage) btn.className = 'active';
-		btn.onclick = () => {
-			currentPage = i;
-			updatePortfolio(true);
-		};
-		nav.appendChild(btn);
+	if (pageCount <= 1) {
+		if (navWrapper) navWrapper.remove();
+		return;
 	}
 
-	// --- Кнопка ВПЕРЕД ---
-	const nextBtn = document.createElement('button');
-	nextBtn.textContent = 'Вперед';
-	nextBtn.className = 'next-btn';
-	nextBtn.disabled = currentPage === pageCount; // Блокируем на последней странице
-	nextBtn.onclick = () => {
-		if (currentPage < pageCount) {
+	if (!navWrapper) {
+		navWrapper = document.createElement('nav');
+		navWrapper.className = 'pagination-nav';
+		navWrapper.ariaLabel = 'Page navigation items with my works';
+		container.after(navWrapper);
+	}
+
+	navWrapper.innerHTML = '';
+
+	const ul = document.createElement('ul');
+	ul.className = 'pagination';
+	navWrapper.appendChild(ul);
+
+	const createItem = (btn) => {
+		const li = document.createElement('li');
+		li.className = 'pagination__item';
+		li.appendChild(btn);
+		return li;
+	};
+
+	ul.appendChild(createItem(
+		createBtn('Назад', 'pagination__btn prev-btn', currentPage === 1, () => {
+			currentPage--;
+			updatePortfolio(true);
+		})
+	));
+
+	for (let i = 1; i <= pageCount; i++) {
+		const btn = createBtn(i, 'pagination__page page-btn', false, () => {
+			currentPage = i;
+			updatePortfolio(true);
+		});
+		if (i === currentPage) btn.classList.add('active');
+		ul.appendChild(createItem(btn));
+	}
+
+	ul.appendChild(createItem(
+		createBtn('Вперед', 'pagination__btn next-btn', currentPage === pageCount, () => {
 			currentPage++;
 			updatePortfolio(true);
-		}
-	};
-	nav.appendChild(nextBtn);
+		})
+	));
 }
+
 
 
 // Обработка клика по фильтрам категорий

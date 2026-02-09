@@ -378,19 +378,6 @@ body._lock {
   transition: background-color 0.3s ease;
 }
 
-.pagination-btn {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.pagination-btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-.pagination-btn.active {
-  background-color: #000; /* Ваш цвет */
-  color: #fff;
-}
-
 .tooltip-container {
   position: relative;
   display: inline-block;
@@ -441,6 +428,21 @@ body._lock {
   opacity: 0; /* Исходное состояние, чтобы не было мерцания до начала анимации */
   backface-visibility: hidden;
   will-change: transform, opacity;
+}
+@media (any-hover: hover) {
+  .card:hover .card__hover {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  .card:hover .card__label {
+    color: #0cecbc;
+  }
+  .card:hover .card__label span::before {
+    left: 100%;
+    transform: translate(-100%, 0);
+    background-color: #0cecbc;
+  }
 }
 .card.animate {
   animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -497,16 +499,6 @@ body._lock {
   visibility: hidden;
   opacity: 0;
 }
-@media (any-hover: hover) {
-  .card__hover:hover .portfolio-page__label {
-    color: #0cecbc;
-  }
-  .card__hover:hover .portfolio-page__label span::before {
-    left: 100%;
-    transform: translate(-100%, 0);
-    background-color: #0cecbc;
-  }
-}
 @media (max-width: 1182px) {
   .card__hover {
     padding: 5px;
@@ -542,9 +534,9 @@ body._lock {
   background-color: #19bd9a;
   width: 23px;
   position: absolute;
-  bottom: -15px;
+  bottom: -10px;
   left: 0;
-  transition: all 0.6s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 @media (max-width: 1182px) {
   .card__label span::before {
@@ -602,6 +594,94 @@ body._lock {
     transform: scale(1) translateY(0);
   }
 }
+.pagination-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pagination-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.pagination-btn.active {
+  background-color: #000; /* Ваш цвет */
+  color: #fff;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination__btn {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: black;
+}
+@media (any-hover: hover) {
+  .pagination__btn:hover {
+    background-color: rgb(129, 101, 101);
+  }
+}
+.pagination__btn.active {
+  border-color: rgb(218, 143, 143);
+}
+.pagination__btn:disabled {
+  color: #a4afc8;
+  pointer-events: none;
+}
+.pagination__btn_prev {
+  transform: rotate(90deg);
+}
+.pagination__btn_next {
+  transform: rotate(-90deg);
+}
+.pagination__list {
+  display: flex;
+  margin: 0px 2px;
+}
+.pagination__item:not(:last-child) {
+  margin: 0px 2px 0px 0px;
+}
+.pagination__page {
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: black;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .pagination__page:hover {
+    background-color: rgb(129, 101, 101);
+  }
+}
+.pagination__page.active {
+  border-color: rgb(218, 143, 143);
+  background-color: transparent;
+}
+.pagination__page.disabled {
+  color: gray;
+  pointer-events: none;
+}
+.pagination__dots {
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: black;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
   font-size: 32px;
   font-weight: 700;

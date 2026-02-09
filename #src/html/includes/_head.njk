@@ -5,4 +5,22 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="img/icons/html-black.svg" type="images/svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function addDarkClass() {
+			try {
+				if (localStorage.getItem("theme") === "night-theme") {
+					document
+						.body
+						.classList
+						.add("night-theme");
+				} else {
+					document
+						.body
+						.classList
+						.remove("night-theme");
+				}
+			} catch (err) {}
+		}
+		addDarkClass();
+	</script>
 </head>

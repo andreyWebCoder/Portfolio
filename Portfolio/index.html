@@ -9,6 +9,24 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="img/icons/html-black.svg" type="images/svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function addDarkClass() {
+			try {
+				if (localStorage.getItem("theme") === "night-theme") {
+					document
+						.body
+						.classList
+						.add("night-theme");
+				} else {
+					document
+						.body
+						.classList
+						.remove("night-theme");
+				}
+			} catch (err) {}
+		}
+		addDarkClass();
+	</script>
 </head>
 
 	<body>
@@ -16,217 +34,904 @@
 		<div class="wrapper">
 			<header class="header">
 	<div class="header__content _container">
-		<a href="#" class="header__logo"><img src="img/header/avatar.jpg" alt="Logo" /></a>
+		<a href="#" class="header__logo"><img src="img/header/avatar.jpg" alt="Logo"/></a>
 		<div class="header__menu menu">
 			<nav class="menu__body">
 				<ul class="menu__list">
-					<li class="menu__item"><a href="#portfolio-page" class="menu__link _goto">Мои работы</a></li>
-					<li class="menu__item"><a href="#about-page" class="menu__link _goto">Обо мне</a></li>
-					<li class="menu__item"><a href="#contacts-page" class="menu__link _goto">Контакты</a></li>
+					<li class="menu__item">
+						<a href="#portfolio-page" class="menu__link _goto" data-key="headerNav1">Мои работы</a>
+					</li>
+					<li class="menu__item">
+						<a href="#about-page" class="menu__link _goto" data-key="headerNav2">Обо мне</a>
+					</li>
+					<li class="menu__item">
+						<a href="#contacts-page" class="menu__link _goto" data-key="headerNav3">Контакты</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
-		<div class="header__contakts">
-			<a href="mailto:foresteraws@gmail.com" class="header__linkc _icon-mail"><span>foresteraws@gmail.com</span></a>
-			<a href="https://t.me/Andrey_Owl" class="header__linkc _icon-tekegram" target=" _blank"><span>Написать в telegram</span></a>
+		<div class="header__contacts">
+			<a href="mailto:foresteraws@gmail.com" class="header__link tooltip-container _icon-mail">
+				<span class="tooltip-box">Подсказка на русском</span>
+			</a>
+			<a href="https://t.me/MarkupDev" class="header__link tooltip-container _icon-tekegram" target=" _blank">
+				<span class="tooltip-box">Подсказка на русском</span>
+			</a>
+			<select id="language-select" class="header__select" name="lang">
+				<option value="ua" selected>UA</option>
+				<option value="en">EN</option>
+				<option value="ru">RU</option>
+			</select>
+			<button id="toggle-bg" type="button" class="btn-theme">Theme</button>
 		</div>
-		<select class="header__select" name="lang">
-			<option value="ua" selected>UA</option>
-			<option value="en">EN</option>
-			<option value="ru">RU</option>
-		</select>
-		<button class="menu__icon icon-menu">
+
+		<button class="menu__bt bt-menu">
 			<span></span>
 			<span></span>
 			<span></span>
 		</button>
 	</div>
 </header>
-
 			<main class="page">
-				<!-- ===================стрелка вверх============== -->
+				<!-- ===================button scroll top============== -->
 				<a href="#header" class="page__arrow _goto"></a>
 				<section class="page__portfolio portfolio-page">
 					<div class="portfolio-page__container _container">
-						<h2 class="portfolio-page__title title">Мои работы</h2>
+						<h2 class="portfolio-page__title title" data-key="titleWork">Мои работы</h2>
 						<div class="portfolio-page__nav nav-portfolio">
 							<ul class="nav-portfolio__list" id="myDIV">
 								
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link" data-filter="*">Все работы</a>
+										<a href="#" class="nav-portfolio__link active" data-filter="*">Все работы</a>
 									</li>
 								
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link" data-filter=".lending">Лендинги</a>
+										<a href="#" class="nav-portfolio__link " data-filter=".lending">Лендинги</a>
 									</li>
 								
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link" data-filter=".many-pages">Многостраничные сайты</a>
+										<a href="#" class="nav-portfolio__link " data-filter=".many-pages">Многостраничные сайты</a>
 									</li>
 								
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link" data-filter=".animations">Анимации Css, Js</a>
+										<a href="#" class="nav-portfolio__link " data-filter=".animations">Анимации Css, Js</a>
 									</li>
 								
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link" data-filter=".jquery">jQuery</a>
+										<a href="#" class="nav-portfolio__link " data-filter=".jquery">jQuery</a>
 									</li>
 								
 							</ul>
 						</div>
 						<div class="portfolio-page__content">
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-1">
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-1">
 											<img src="img/portfolio/Site1.jpg" alt="Bouncy" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Bouncy" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Bouncy" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Bouncy</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-2">
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-2">
 											<img src="img/portfolio/Site3.jpg" alt="Frispes" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Frispes/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Frispes/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Frispes</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-3">
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-3">
 											<img src="img/portfolio/Site2.jpg" alt="Finance" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Finance/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Finance/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Finance</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-4">
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-4">
 											<img src="img/portfolio/Site4.jpg" alt="Guurmann" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Guurmann/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Guurmann/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Guurmann</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-5">
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-5">
 											<img src="img/portfolio/Site5.jpg" alt="Hungry" >
 										</div>
-										<a href="https://andreywebcoder.github.io/hungry/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/hungry/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Hungry</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-6">
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-6">
 											<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)" >
 										</div>
-										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Аvenue-fashion(six page)</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-7">
+								<div class="portfolio-page__card card lending jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-7">
 											<img src="img/portfolio/Site7.jpg" alt="Sportshold" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Sportshold/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Sportshold/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Sportshold</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-8">
+								<div class="portfolio-page__card card animations jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-8">
 											<img src="img/portfolio/Site8.jpg" alt="Yoga" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Yoga/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Yoga/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Yoga</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-9">
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-9">
 											<img src="img/portfolio/Site9.jpg" alt="Table" >
 										</div>
-										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Table</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
-								<div class="portfolio-page__row lending animations">
-									<div class="portfolio-page__item">
-										<div class="portfolio-page__img _ibg portfolio-page__img_height-10">
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
 											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
 										</div>
-										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="portfolio-page__hover" target="_blank">
-											<div class="portfolio-page__label">
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
 												<span>Uzb</span>
 											</div>
-											<p class="portfolio-page__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
-											<span class="portfolio-page__label-btn">Посмотреть</span>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-1">
+											<img src="img/portfolio/Site1.jpg" alt="Bouncy" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Bouncy" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Bouncy</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-2">
+											<img src="img/portfolio/Site3.jpg" alt="Frispes" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Frispes/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Frispes</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-3">
+											<img src="img/portfolio/Site2.jpg" alt="Finance" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Finance/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Finance</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-4">
+											<img src="img/portfolio/Site4.jpg" alt="Guurmann" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Guurmann/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Guurmann</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-5">
+											<img src="img/portfolio/Site5.jpg" alt="Hungry" >
+										</div>
+										<a href="https://andreywebcoder.github.io/hungry/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Hungry</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-6">
+											<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)" >
+										</div>
+										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Аvenue-fashion(six page)</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-7">
+											<img src="img/portfolio/Site7.jpg" alt="Sportshold" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Sportshold/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Sportshold</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card animations jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-8">
+											<img src="img/portfolio/Site8.jpg" alt="Yoga" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Yoga/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Yoga</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-9">
+											<img src="img/portfolio/Site9.jpg" alt="Table" >
+										</div>
+										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Table</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-1">
+											<img src="img/portfolio/Site1.jpg" alt="Bouncy" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Bouncy" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Bouncy</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-2">
+											<img src="img/portfolio/Site3.jpg" alt="Frispes" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Frispes/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Frispes</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-3">
+											<img src="img/portfolio/Site2.jpg" alt="Finance" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Finance/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Finance</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-4">
+											<img src="img/portfolio/Site4.jpg" alt="Guurmann" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Guurmann/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Guurmann</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-5">
+											<img src="img/portfolio/Site5.jpg" alt="Hungry" >
+										</div>
+										<a href="https://andreywebcoder.github.io/hungry/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Hungry</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-6">
+											<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)" >
+										</div>
+										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Аvenue-fashion(six page)</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-7">
+											<img src="img/portfolio/Site7.jpg" alt="Sportshold" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Sportshold/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Sportshold</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card animations jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-8">
+											<img src="img/portfolio/Site8.jpg" alt="Yoga" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Yoga/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Yoga</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-9">
+											<img src="img/portfolio/Site9.jpg" alt="Table" >
+										</div>
+										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Table</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-1">
+											<img src="img/portfolio/Site1.jpg" alt="Bouncy" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Bouncy" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Bouncy</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-2">
+											<img src="img/portfolio/Site3.jpg" alt="Frispes" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Frispes/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Frispes</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-3">
+											<img src="img/portfolio/Site2.jpg" alt="Finance" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Finance/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Finance</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-4">
+											<img src="img/portfolio/Site4.jpg" alt="Guurmann" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Guurmann/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Guurmann</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-5">
+											<img src="img/portfolio/Site5.jpg" alt="Hungry" >
+										</div>
+										<a href="https://andreywebcoder.github.io/hungry/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Hungry</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-6">
+											<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)" >
+										</div>
+										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Аvenue-fashion(six page)</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-7">
+											<img src="img/portfolio/Site7.jpg" alt="Sportshold" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Sportshold/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Sportshold</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card animations jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-8">
+											<img src="img/portfolio/Site8.jpg" alt="Yoga" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Yoga/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Yoga</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-9">
+											<img src="img/portfolio/Site9.jpg" alt="Table" >
+										</div>
+										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Table</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-1">
+											<img src="img/portfolio/Site1.jpg" alt="Bouncy" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Bouncy" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Bouncy</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-2">
+											<img src="img/portfolio/Site3.jpg" alt="Frispes" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Frispes/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Frispes</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-3">
+											<img src="img/portfolio/Site2.jpg" alt="Finance" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Finance/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Finance</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending animations">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-4">
+											<img src="img/portfolio/Site4.jpg" alt="Guurmann" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Guurmann/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Guurmann</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-5">
+											<img src="img/portfolio/Site5.jpg" alt="Hungry" >
+										</div>
+										<a href="https://andreywebcoder.github.io/hungry/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Hungry</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-6">
+											<img src="img/portfolio/Site6.jpg" alt="Аvenue-fashion(six page)" >
+										</div>
+										<a href="https://andreywebcoder.github.io/avenue-fashion-six-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Аvenue-fashion(six page)</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-7">
+											<img src="img/portfolio/Site7.jpg" alt="Sportshold" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Sportshold/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Sportshold</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card animations jquery">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-8">
+											<img src="img/portfolio/Site8.jpg" alt="Yoga" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Yoga/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Yoga</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card lending">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-9">
+											<img src="img/portfolio/Site9.jpg" alt="Table" >
+										</div>
+										<a href="https://andreywebcoder.github.io/gorizontal-scroll-table/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Table</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка таблицы на сайт.</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
+										</a>
+									</div>
+								</div>
+							
+								<div class="portfolio-page__card card many-pages">
+									<div class="card__item">
+										<div class="card__img _ibg card__img_height-10">
+											<img src="img/portfolio/SIte10.jpg" alt="Uzb" >
+										</div>
+										<a href="https://andreywebcoder.github.io/Uzb-five-page/" class="card__hover" target="_blank">
+											<div class="card__label">
+												<span>Uzb</span>
+											</div>
+											<p class="card__text">Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами</p>
+											<span class="card__label-btn">Посмотреть</span>
 										</a>
 									</div>
 								</div>
 							
 						</div>
+						<div class="pagination" id="pagination"></div>
 					</div>
 				</section>
 				<section class="page__about about-page">

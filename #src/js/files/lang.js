@@ -1,32 +1,26 @@
-const langArr = {
-    "unit" :  {
-        "ru": "Портфолио",
-        "en": "Portfolio",
-        "ua": "Портфоліо",
-    }, 
-    "chip": {
-        "ru": "графический чип",
-        "en": "graphics processing unit",
-        "ua": "графічний чіп",
-    }, 
-    "memory": {
-        "ru": "объем памяти",
-        "en": "memory size",
-        "ua": "oбсяг пам'яті",
-    }, 
-    "memory-type": {
-        "ru": "тип памяти",
-        "en": "memory type",
-        "ua": "nип пам'яті",
-    }, 
-    "cool": {
-        "ru": "тип системы охлаждения",
-        "en": "сooling system type",
-        "ua": "тип системи охолодження",
-    }, 
-    "more": {
-        "ru": "детально о товаре",
-        "en": "more details",
-        "ua": "детально про товар",
-    }, 
-}
+const translations = {
+	ru: {
+		titleWork: "Мои работы",
+		headerNav1: "Мои работы",
+		headerNav2: "Обо мне",
+		headerNav3: "Контакты",
+		paginPrev: "Предыдущая",
+		paginNext: "Следующая",
+	},
+	en: {
+		titleWork: "My works",
+		headerNav1: "My works",
+		headerNav2: "About me",
+		headerNav3: "Contacts",
+		paginPrev: "Previous",
+		paginNext: "Next",
+	},
+	ua: {
+		titleWork: "Мої роботи",
+		headerNav1: "Мої роботи",
+		headerNav2: "Про мене",
+		headerNav3: "Контакти",
+		paginPrev: "Попередня",
+		paginNext: "Наступна",
+	}
+};

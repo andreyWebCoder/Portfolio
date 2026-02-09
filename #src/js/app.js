@@ -3,4 +3,5 @@
 @@include('files/date-footer.js', {})
 @@include('files/script.js', {})
 @@include('files/scroll.js', {})
-@@include('files/isotope.js', {})
+@@include('files/select.js', {})
+@@include('files/pagination.js', {})

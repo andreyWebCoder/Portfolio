@@ -131,13 +131,16 @@ function select_actions(original, select) {
 			if (select_type == 'input') {
 				select_input.value = select_option_text;
 				original.value = select_option_value;
+				original.dispatchEvent(new Event('change'));
 			} else {
 				if (original.hasAttribute('multiple')) {
 					select_option.classList.toggle('_selected');
 					selectMultiItems();
+					original.dispatchEvent(new Event('change'));
 				} else {
 					select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>';
 					original.value = select_option_value;
+					original.dispatchEvent(new Event('change'));
 					select_option.style.display = 'none';
 				}
 			}

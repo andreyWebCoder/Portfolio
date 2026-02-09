@@ -4,26 +4,27 @@ const allCards = Array.from(document.querySelectorAll('.portfolio-page__card'));
 const itemsPerPage = 6;
 let currentPage = 1;
 let currentFilter = '*';
-
-function updatePortfolio() {
-	// 1. Фильтруем по категории (data-filter в HTML)
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'manual';
+}
+function updatePortfolio(isClick = false) {
 	const filteredByCategory = allCards.filter(card => {
 		return currentFilter === '*' || card.matches(currentFilter);
 	});
 
-	// 2. Считаем диапазон для текущей страницы
 	const start = (currentPage - 1) * itemsPerPage;
 	const end = start + itemsPerPage;
 	const cardsToShow = filteredByCategory.slice(start, end);
 
-	// 3. Очищаем контейнер и вставляем карточки обратно
 	container.innerHTML = '';
 	cardsToShow.forEach(card => container.appendChild(card));
 
-	// 4. Скролл к фильтрам
-	const section = document.querySelector('.page__portfolio');
-	if (section) {
-		section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	// Важное условие: скроллим ТОЛЬКО если это был клик
+	if (isClick) {
+		const section = document.querySelector('.page__portfolio');
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
 	}
 
 	renderPagination(filteredByCategory.length);
@@ -46,7 +47,7 @@ function renderPagination(totalItems) {
 	prevBtn.onclick = () => {
 		if (currentPage > 1) {
 			currentPage--;
-			updatePortfolio();
+			updatePortfolio(true);
 		}
 	};
 	nav.appendChild(prevBtn);
@@ -58,7 +59,7 @@ function renderPagination(totalItems) {
 		if (i === currentPage) btn.className = 'active';
 		btn.onclick = () => {
 			currentPage = i;
-			updatePortfolio();
+			updatePortfolio(true);
 		};
 		nav.appendChild(btn);
 	}
@@ -71,7 +72,7 @@ function renderPagination(totalItems) {
 	nextBtn.onclick = () => {
 		if (currentPage < pageCount) {
 			currentPage++;
-			updatePortfolio();
+			updatePortfolio(true);
 		}
 	};
 	nav.appendChild(nextBtn);
@@ -87,7 +88,7 @@ document.querySelectorAll('.nav-portfolio__link').forEach(link => {
 
 		currentFilter = link.dataset.filter;
 		currentPage = 1; // Сброс на первую страницу
-		updatePortfolio();
+		updatePortfolio(true);
 	});
 });
 

@@ -163,6 +163,11 @@ h6 {
   font-size: inherit;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--wd-black);
   font-size: 18px;
@@ -934,6 +939,9 @@ body.ie ._ibg img {
   padding: 5px 15px;
   border: 1.5px solid transparent;
   border-radius: 20px;
+}
+.menu__link._active {
+  color: red;
 }
 @media (max-width: 991.98px) {
   .menu__link {

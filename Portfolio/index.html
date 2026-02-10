@@ -32,20 +32,20 @@
 	<body>
 		<div class="progress"></div>
 		<div class="wrapper">
-			<header class="header">
+			<header id="header" class="header">
 	<div class="header__content _container">
 		<a href="#" class="header__logo"><img src="img/header/avatar.jpg" alt="Logo"/></a>
 		<div class="header__menu menu">
 			<nav class="menu__body">
 				<ul class="menu__list">
 					<li class="menu__item">
-						<a href="#portfolio-page" class="menu__link _goto" data-key="headerNav1">Мои работы</a>
+						<a href="#portfolio-page" class="menu__link" data-key="headerNav1">Мои работы</a>
 					</li>
 					<li class="menu__item">
-						<a href="#about-page" class="menu__link _goto" data-key="headerNav2">Обо мне</a>
+						<a href="#about-page" class="menu__link" data-key="headerNav2">Обо мне</a>
 					</li>
 					<li class="menu__item">
-						<a href="#contacts-page" class="menu__link _goto" data-key="headerNav3">Контакты</a>
+						<a href="#contacts-page" class="menu__link" data-key="headerNav3">Контакты</a>
 					</li>
 				</ul>
 			</nav>
@@ -75,7 +75,7 @@
 			<main class="page">
 				<!-- ===================button scroll top============== -->
 				<a href="#header" class="page__arrow _goto"></a>
-				<section class="page__portfolio portfolio-page">
+				<section id="portfolio-page" class="page__portfolio portfolio-page">
 					<div class="portfolio-page__container _container">
 						<h2 class="portfolio-page__title title" data-key="titleWork"></h2>
 						<div class="portfolio-page__nav nav-portfolio">
@@ -259,7 +259,7 @@
 						<nav class="pagination-nav" aria-label="Page navigation items with my works"></nav>
 					</div>
 				</section>
-				<section class="page__about about-page">
+				<section id="about-page" class="page__about about-page">
 					<div class="about-page__container _container">
 						<h2 class="about-page__title title" data-key="titleAbout">Обо мне</h2>
 						<p class="about-page__label"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
@@ -357,7 +357,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="page__contacts contacts-page">
+				<section id="contacts-page" class="page__contacts contacts-page">
 					<div class="contacts-page__container _container">
 						<h2 class="contacts-page__title title title_white">Контакты</h2>
 						<div class="contacts-page__links">

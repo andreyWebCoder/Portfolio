@@ -175,7 +175,6 @@ body._lock {
 .wrapper {
   width: 100%;
   min-height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -425,7 +424,7 @@ body._lock {
 .card {
   width: 100%;
   position: relative;
-  opacity: 0; /* Исходное состояние, чтобы не было мерцания до начала анимации */
+  opacity: 0;
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
@@ -733,7 +732,10 @@ body.ie ._ibg img {
 
 .header {
   height: 100px;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 .header::before, .header::after {
   content: "";

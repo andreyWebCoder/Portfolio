@@ -2,7 +2,7 @@
 .card {
 	width: 100%;
 	position: relative;
-	opacity: 0; /* Исходное состояние, чтобы не было мерцания до начала анимации */
+	opacity: 0;
 	backface-visibility: hidden;
 	will-change: transform, opacity;
 	@media (any-hover: hover) {
@@ -118,10 +118,10 @@
 		display: inline-block;
 		transition: all 0.3s ease 0s;
 
-		@media (max-width: $md1+px) {
+		@media (max-width: #{$md1+px}) {
 			font-size: 14px;
 		}
-		@media (max-width: $md4+px) {
+		@media (max-width: #{$md4+px}) {
 			font-size: 13px;
 		}
 		@media (max-width: 620px) {
@@ -138,7 +138,7 @@
 				bottom: -10px;
 				left: 0;
 				transition: all 0.8s ease 0s;
-				@media (max-width: $md1+px) {
+				@media (max-width: #{$md1+px}) {
 					bottom: -5px;
 				}
 			}
@@ -152,7 +152,7 @@
 		color: #b2b3b3;
 		font-size: 16px;
 		line-height: 120%;
-		@media (max-width: $md1+px) {
+		@media (max-width: #{$md1+px}) {
 			font-size: 14px;
 			line-height: 110%;
 			flex: 0 0 auto;
@@ -172,7 +172,7 @@
 		border: 1px solid #8fafaf;
 		border-radius: 18.5px;
 		transition: all 0.5s ease 0s;
-		@media (max-width: $md4+px) {
+		@media (max-width: #{$md4+px}) {
 			padding: 9.5px 18.5px;
 		}
 		@media (any-hover: hover) {

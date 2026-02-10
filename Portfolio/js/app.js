@@ -328,26 +328,56 @@ function _is_hidden(el) {
 }
 const translations = {
 	ru: {
-		titleWork: "Мои работы",
-		headerNav1: "Мои работы",
+		// titles
+		titleWork: "Мои проекты",
+		titleAbout: "Обо мне",
+		// header nav links
+		headerNav1: "Мои проекты",
 		headerNav2: "Обо мне",
 		headerNav3: "Контакты",
+		// filters nav links
+		filtersNav1: "Все",
+		filtersNav2: "Лендинги",
+		filtersNav3: "Многостраничные сайты",
+		filtersNav4: "Анимации Css, Js",
+		filtersNav5: "jQuery",
+		// pagination
 		paginPrev: "Предыдущая",
 		paginNext: "Следующая",
 	},
 	en: {
-		titleWork: "My works",
-		headerNav1: "My works",
+		// titles
+		titleWork: "My projects",
+		titleAbout: "About me",
+		// header nav links
+		headerNav1: "My projects",
 		headerNav2: "About me",
 		headerNav3: "Contacts",
+		// filters nav links
+		filtersNav1: "All",
+		filtersNav2: "Landing pages",
+		filtersNav3: "Multi-page sites",
+		filtersNav4: "CSS, JS animations",
+		filtersNav5: "jQuery",
+		// pagination
 		paginPrev: "Previous",
 		paginNext: "Next",
 	},
 	ua: {
-		titleWork: "Мої роботи",
-		headerNav1: "Мої роботи",
+		// titles
+		titleWork: "Мої проекти",
+		titleAbout: "Про мене",
+		// header nav links
+		headerNav1: "Мої проекти",
 		headerNav2: "Про мене",
 		headerNav3: "Контакти",
+		// filters nav links
+		filtersNav1: "All",
+		filtersNav2: "Лендінги",
+		filtersNav3: "Багатосторінкові сайти",
+		filtersNav4: "CSS, JS анімації",
+		filtersNav5: "jQuery",
+		// pagination	
 		paginPrev: "Попередня",
 		paginNext: "Наступна",
 	}
@@ -1148,8 +1178,6 @@ function updatePortfolio(isClick = false) {
 	const filteredByCategory = allCards.filter(card => {
 		return currentFilter === '*' || card.matches(currentFilter);
 	});
-	console.log('filteredByCategory:', filteredByCategory);
-	console.log('isArray:', Array.isArray(filteredByCategory));
 	const start = (currentPage - 1) * itemsPerPage;
 	const end = start + itemsPerPage;
 	const cardsToShow = filteredByCategory.slice(start, end);
@@ -1174,7 +1202,17 @@ function updatePortfolio(isClick = false) {
 	if (isClick) {
 		const section = document.querySelector('.page__portfolio');
 		if (section) {
-			section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			// 1. Получаем высоту шапки (замени .header на свой класс)
+			const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+
+			// 2. Считаем позицию секции относительно верха страницы
+			const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+
+			// 3. Вычитаем высоту шапки и добавляем небольшой запас (например, 20px)
+			window.scrollTo({
+				top: sectionTop - headerHeight - 20,
+				behavior: 'smooth'
+			});
 		}
 	}
 
@@ -1215,7 +1253,7 @@ function renderPagination(totalItems) {
 	};
 
 	ul.appendChild(createItem(
-		createBtn('Назад', 'pagination__btn prev-btn', currentPage === 1, () => {
+		createBtn('<', 'pagination__btn prev-btn', currentPage === 1, () => {
 			currentPage--;
 			updatePortfolio(true);
 		})
@@ -1231,7 +1269,7 @@ function renderPagination(totalItems) {
 	}
 
 	ul.appendChild(createItem(
-		createBtn('Вперед', 'pagination__btn next-btn', currentPage === pageCount, () => {
+		createBtn('>', 'pagination__btn next-btn', currentPage === pageCount, () => {
 			currentPage++;
 			updatePortfolio(true);
 		})

@@ -23,8 +23,6 @@ function updatePortfolio(isClick = false) {
 	const filteredByCategory = allCards.filter(card => {
 		return currentFilter === '*' || card.matches(currentFilter);
 	});
-	console.log('filteredByCategory:', filteredByCategory);
-	console.log('isArray:', Array.isArray(filteredByCategory));
 	const start = (currentPage - 1) * itemsPerPage;
 	const end = start + itemsPerPage;
 	const cardsToShow = filteredByCategory.slice(start, end);
@@ -49,7 +47,17 @@ function updatePortfolio(isClick = false) {
 	if (isClick) {
 		const section = document.querySelector('.page__portfolio');
 		if (section) {
-			section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			// 1. Получаем высоту шапки (замени .header на свой класс)
+			const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+
+			// 2. Считаем позицию секции относительно верха страницы
+			const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+
+			// 3. Вычитаем высоту шапки и добавляем небольшой запас (например, 20px)
+			window.scrollTo({
+				top: sectionTop - headerHeight - 20,
+				behavior: 'smooth'
+			});
 		}
 	}
 
@@ -90,7 +98,7 @@ function renderPagination(totalItems) {
 	};
 
 	ul.appendChild(createItem(
-		createBtn('Назад', 'pagination__btn prev-btn', currentPage === 1, () => {
+		createBtn('<', 'pagination__btn prev-btn', currentPage === 1, () => {
 			currentPage--;
 			updatePortfolio(true);
 		})
@@ -106,7 +114,7 @@ function renderPagination(totalItems) {
 	}
 
 	ul.appendChild(createItem(
-		createBtn('Вперед', 'pagination__btn next-btn', currentPage === pageCount, () => {
+		createBtn('>', 'pagination__btn next-btn', currentPage === pageCount, () => {
 			currentPage++;
 			updatePortfolio(true);
 		})

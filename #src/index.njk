@@ -13,12 +13,12 @@
 				<a href="#header" class="page__arrow _goto"></a>
 				<section class="page__portfolio portfolio-page">
 					<div class="portfolio-page__container _container">
-						<h2 class="portfolio-page__title title" data-key="titleWork">Мои работы</h2>
+						<h2 class="portfolio-page__title title" data-key="titleWork"></h2>
 						<div class="portfolio-page__nav nav-portfolio">
-							<ul class="nav-portfolio__list" id="myDIV">
+							<ul class="nav-portfolio__list">
 								{% for nav in data.navListData %}
 									<li class="nav-portfolio__item">
-										<a href="#" class="nav-portfolio__link {{'active' if nav.active}}" data-filter="{{ nav.filter }}">{{ nav.text }}</a>
+										<a href="#" class="nav-portfolio__link {{'active' if nav.active}}" data-filter="{{ nav.filter }}" data-key="{{ nav.key }}">{{ nav.text }}</a>
 									</li>
 								{% endfor %}
 							</ul>
@@ -27,7 +27,7 @@
 							{% for item in data.portfolioItems %}
 								<div class="portfolio-page__card card {{item.classes}}">
 									<div class="card__item">
-										<div class="card__img _ibg {{ item.heightClass }}">
+										<div class="card__img _ibg">
 											<img src="{{ item.img.src }}" alt="{{ item.img.alt }}" >
 										</div>
 										<a href="{{ item.link }}" class="card__hover" target="_blank">
@@ -46,7 +46,7 @@
 				</section>
 				<section class="page__about about-page">
 					<div class="about-page__container _container">
-						<h2 class="about-page__title title">Обо мне</h2>
+						<h2 class="about-page__title title" data-key="titleAbout">Обо мне</h2>
 						<p class="about-page__label"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
 						<div class="about-page__study study-about-page">
 							<div class="study-about-page__img _ibg">

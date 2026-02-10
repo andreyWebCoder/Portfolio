@@ -2,19 +2,24 @@
 	{
 		text: 'Все работы',
 		filter: '*',
+		key: 'filtersNav1',
 		active:true
 	}, {
 		text: 'Лендинги',
-		filter: '.lending'
+		filter: '.lending',
+		key: 'filtersNav2'
 	}, {
 		text: 'Многостраничные сайты',
-		filter: '.many-pages'
+		filter: '.many-pages',
+		key: 'filtersNav3'
 	}, {
 		text: 'Анимации Css, Js',
-		filter: '.animations'
+		filter: '.animations',
+		key: 'filtersNav4'
 	}, {
 		text: 'jQuery',
-		filter: '.jquery'
+		filter: '.jquery',
+		key: 'filtersNav5'
 	}
 ] %}
 {% set portfolioItems = [
@@ -23,7 +28,6 @@
 		classes: 'lending animations',
 		label: 'Bouncy',
 		img: {src:'img/portfolio/Site1.jpg', alt:'Bouncy'},
-		heightClass: 'card__img_height-1',
 		link:'https://andreywebcoder.github.io/Bouncy'
 	},
 	{	
@@ -31,7 +35,6 @@
 		classes: 'lending animations',
 		label: 'Frispes',
 		img: {src:'img/portfolio/Site3.jpg', alt:'Frispes'},
-		heightClass: 'card__img_height-2',
 		link:'https://andreywebcoder.github.io/Frispes/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.',
@@ -45,150 +48,43 @@
 		classes: 'lending animations',
 		label: 'Guurmann',
 		img: {src:'img/portfolio/Site4.jpg', alt:'Guurmann'},
-		heightClass: 'card__img_height-4',
 		link:'https://andreywebcoder.github.io/Guurmann/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.',
 		classes: 'lending',
 		label: 'Hungry',
 		img: {src:'img/portfolio/Site5.jpg', alt:'Hungry'},
-		heightClass: 'card__img_height-5',
 		link:'https://andreywebcoder.github.io/hungry/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.',
 		classes: 'many-pages',
 		label: 'Аvenue-fashion(six page)',
 		img: {src:'img/portfolio/Site6.jpg', alt:'Аvenue-fashion(six page)'},
-		heightClass: 'card__img_height-6',
 		link:'https://andreywebcoder.github.io/avenue-fashion-six-page/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.',
 		classes: 'lending jquery',
 		label: 'Sportshold',
 		img: {src:'img/portfolio/Site7.jpg', alt:'Sportshold'},
-		heightClass: 'card__img_height-7',
 		link:'https://andreywebcoder.github.io/Sportshold/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.',
 		classes: 'animations jquery',
 		label: 'Yoga',
 		img: {src:'img/portfolio/Site8.jpg', alt:'Yoga'},
-		heightClass: 'card__img_height-8',
 		link:'https://andreywebcoder.github.io/Yoga/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка таблицы на сайт.',
 		classes: 'lending',
 		label: 'Table',
 		img: {src:'img/portfolio/Site9.jpg', alt:'Table'},
-		heightClass: 'card__img_height-9',
 		link:'https://andreywebcoder.github.io/gorizontal-scroll-table/'
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами',
 		classes: 'many-pages',
 		label: 'Uzb',
 		img: {src:'img/portfolio/SIte10.jpg', alt:'Uzb'},
-		heightClass: 'card__img_height-10',
 		link:'https://andreywebcoder.github.io/Uzb-five-page/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами',
-		classes: 'many-pages',
-		label: 'Uzb',
-		img: {src:'img/portfolio/SIte10.jpg', alt:'Uzb'},
-		heightClass: 'card__img_height-10',
-		link:'https://andreywebcoder.github.io/Uzb-five-page/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).',
-		classes: 'lending animations',
-		label: 'Bouncy',
-		img: {src:'img/portfolio/Site1.jpg', alt:'Bouncy'},
-		heightClass: 'card__img_height-1',
-		link:'https://andreywebcoder.github.io/Bouncy'
-	},
-	{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.',
-		classes: 'lending animations',
-		label: 'Frispes',
-		img: {src:'img/portfolio/Site3.jpg', alt:'Frispes'},
-		heightClass: 'card__img_height-2',
-		link:'https://andreywebcoder.github.io/Frispes/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: легкой анимации Css, меню бургер на мобильной версии на чистом Js.',
-		classes: 'lending',
-		label: 'Finance',
-		img: {src:'img/portfolio/Site2.jpg', alt:'Finance'},
-		heightClass: 'card__img_height-3',
-		link:'https://andreywebcoder.github.io/Finance/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: анимации Css, анимации Js (wow.js), меню бургер, анимация логотипа.',
-		classes: 'lending animations',
-		label: 'Guurmann',
-		img: {src:'img/portfolio/Site4.jpg', alt:'Guurmann'},
-		heightClass: 'card__img_height-4',
-		link:'https://andreywebcoder.github.io/Guurmann/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка небольшого сайта. C применением: меню бургер.',
-		classes: 'lending',
-		label: 'Hungry',
-		img: {src:'img/portfolio/Site5.jpg', alt:'Hungry'},
-		heightClass: 'card__img_height-5',
-		link:'https://andreywebcoder.github.io/hungry/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.',
-		classes: 'many-pages',
-		label: 'Аvenue-fashion(six page)',
-		img: {src:'img/portfolio/Site6.jpg', alt:'Аvenue-fashion(six page)'},
-		heightClass: 'card__img_height-6',
-		link:'https://andreywebcoder.github.io/avenue-fashion-six-page/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.',
-		classes: 'lending jquery',
-		label: 'Sportshold',
-		img: {src:'img/portfolio/Site7.jpg', alt:'Sportshold'},
-		heightClass: 'card__img_height-7',
-		link:'https://andreywebcoder.github.io/Sportshold/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: jQuery, Slick slider, анимации WOW.js, fullscrin, галерея fancybox.js.',
-		classes: 'animations jquery',
-		label: 'Yoga',
-		img: {src:'img/portfolio/Site8.jpg', alt:'Yoga'},
-		heightClass: 'card__img_height-8',
-		link:'https://andreywebcoder.github.io/Yoga/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка таблицы на сайт.',
-		classes: 'lending',
-		label: 'Table',
-		img: {src:'img/portfolio/Site9.jpg', alt:'Table'},
-		heightClass: 'card__img_height-9',
-		link:'https://andreywebcoder.github.io/gorizontal-scroll-table/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами',
-		classes: 'many-pages',
-		label: 'Uzb',
-		img: {src:'img/portfolio/SIte10.jpg', alt:'Uzb'},
-		heightClass: 'card__img_height-10',
-		link:'https://andreywebcoder.github.io/Uzb-five-page/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка 5 ти страничного сайта, с кастомным видео и аудио плеерами',
-		classes: 'many-pages',
-		label: 'Uzb',
-		img: {src:'img/portfolio/SIte10.jpg', alt:'Uzb'},
-		heightClass: 'card__img_height-10',
-		link:'https://andreywebcoder.github.io/Uzb-five-page/'
-	},{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, фильтрация Isotope, и другие js решения(меню бургер, прогресс скролла, попапы).',
-		classes: 'lending animations',
-		label: 'Bouncy',
-		img: {src:'img/portfolio/Site1.jpg', alt:'Bouncy'},
-		heightClass: 'card__img_height-1',
-		link:'https://andreywebcoder.github.io/Bouncy'
-	},
-	{	
-		text: 'Адаптивная кросбраузерная HTML-верстка сайта. C применением: слайдера Swiper, другие js решения(меню бургер, попапы), легкой анимации Css.',
-		classes: 'lending animations',
-		label: 'Frispes',
-		img: {src:'img/portfolio/Site3.jpg', alt:'Frispes'},
-		heightClass: 'card__img_height-2',
-		link:'https://andreywebcoder.github.io/Frispes/'
 	}
 	
 ] %}

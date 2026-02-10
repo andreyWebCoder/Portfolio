@@ -56,7 +56,7 @@
 	&:nth-child(4n + 1) {
 		.card__img {
 			padding-bottom: 85%;
-			@media (max-width: ($md5 + px)) {
+			@media (max-width: ($md4 + px)) {
 				padding-bottom: 80%;
 			}
 		}
@@ -64,8 +64,8 @@
 	// 2, 6, 10, 14,
 	&:nth-child(4n + 2) {
 		.card__img {
-			padding-bottom: 60%;
-			@media (max-width: ($md5 + px)) {
+			padding-bottom: 65%;
+			@media (max-width: ($md4 + px)) {
 				padding-bottom: 80%;
 			}
 		}
@@ -73,8 +73,8 @@
 	// 3, 7, 11, 15,
 	&:nth-child(4n + 3) {
 		.card__img {
-			padding-bottom: 60%;
-			@media (max-width: ($md5 + px)) {
+			padding-bottom: 65%;
+			@media (max-width: ($md4 + px)) {
 				padding-bottom: 80%;
 			}
 		}
@@ -84,9 +84,9 @@
 		.card__img {
 			padding-bottom: 85%;
 			@media (max-width: ($md3 + px)) {
-				padding-bottom: 60%;
+				padding-bottom: 65%;
 			}
-			@media (max-width: ($md5 + px)) {
+			@media (max-width: ($md4 + px)) {
 				padding-bottom: 80%;
 			}
 		}
@@ -118,7 +118,12 @@
 		left: -100%;
 		visibility: hidden;
 		opacity: 0;
-		@media (max-width: $md1+px) {
+		@media (max-width: ($md3 + px)) {
+			left: 0;
+			visibility: visible;
+			opacity: 1;
+		}
+		@media (max-width: ($md1 + px)) {
 			padding: 5px;
 		}
 	}
@@ -131,10 +136,10 @@
 		display: inline-block;
 		transition: all 0.3s ease 0s;
 
-		@media (max-width: #{$md1+px}) {
+		@media (max-width: ($md1 + px)) {
 			font-size: 14px;
 		}
-		@media (max-width: #{$md4+px}) {
+		@media (max-width: #{$md4 + px}) {
 			font-size: 13px;
 		}
 		@media (max-width: 620px) {
@@ -183,9 +188,9 @@
 		font-size: 16px;
 		color: #8fafaf;
 		border: 1px solid #8fafaf;
-		border-radius: 18.5px;
+		border-radius: 19px;
 		transition: all 0.5s ease 0s;
-		@media (max-width: #{$md4+px}) {
+		@media (max-width: #{$md4 + px}) {
 			padding: 9.5px 18.5px;
 		}
 		@media (any-hover: hover) {

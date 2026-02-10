@@ -466,23 +466,23 @@ body._lock {
 .card:nth-child(4n+1) .card__img {
   padding-bottom: 85%;
 }
-@media (max-width: 359.98px) {
+@media (max-width: 479.98px) {
   .card:nth-child(4n+1) .card__img {
     padding-bottom: 80%;
   }
 }
 .card:nth-child(4n+2) .card__img {
-  padding-bottom: 60%;
+  padding-bottom: 65%;
 }
-@media (max-width: 359.98px) {
+@media (max-width: 479.98px) {
   .card:nth-child(4n+2) .card__img {
     padding-bottom: 80%;
   }
 }
 .card:nth-child(4n+3) .card__img {
-  padding-bottom: 60%;
+  padding-bottom: 65%;
 }
-@media (max-width: 359.98px) {
+@media (max-width: 479.98px) {
   .card:nth-child(4n+3) .card__img {
     padding-bottom: 80%;
   }
@@ -492,10 +492,10 @@ body._lock {
 }
 @media (max-width: 767.98px) {
   .card:nth-child(4n) .card__img {
-    padding-bottom: 60%;
+    padding-bottom: 65%;
   }
 }
-@media (max-width: 359.98px) {
+@media (max-width: 479.98px) {
   .card:nth-child(4n) .card__img {
     padding-bottom: 80%;
   }
@@ -522,6 +522,13 @@ body._lock {
   left: -100%;
   visibility: hidden;
   opacity: 0;
+}
+@media (max-width: 767.98px) {
+  .card__hover {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 @media (max-width: 1182px) {
   .card__hover {
@@ -591,7 +598,7 @@ body._lock {
   font-size: 16px;
   color: #8fafaf;
   border: 1px solid #8fafaf;
-  border-radius: 18.5px;
+  border-radius: 19px;
   transition: all 0.5s ease 0s;
 }
 @media (max-width: 479.98px) {
@@ -1086,7 +1093,7 @@ body.ie ._ibg img {
     column-count: 2;
   }
 }
-@media (max-width: 359.98px) {
+@media (max-width: 479.98px) {
   .portfolio-page__content {
     column-count: 1;
   }

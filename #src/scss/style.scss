@@ -18,7 +18,9 @@
 //<ОСНОВНАЯ СЕТКА>
 //</ОСНОВНАЯ СЕТКА>
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
+@use "forms/forms";
 @use "forms/select";
+@use "forms/input";
 @use "forms/btn";
 @use "ui/tooltip";
 @use "ui/card";

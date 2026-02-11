@@ -201,6 +201,36 @@
 					</div>
 
 				</section>
+				<section class="page__form ">
+					<div class="form-page__container _container">
+						<h2 class="form-page__title title" data-key="titleForm">Send mail</h2>
+						<form id="form" class="form" action="https://api.web3forms.com/submit" method="POST">
+
+							<label for="inputName">
+								<span>Name</span>
+								<input id="inputName" class="input" type="text" name="name" required>
+							</label>
+							<label for="inputCity">
+								<span>City</span>
+								<input id="inputCity" class="input" type="text" name="city" required>
+							</label>
+							<label for="inputNumber">
+								<span>Number</span>
+								<input id="inputNumber" class="input" type="number" name="number" required>
+							</label>
+							<label for="inputEmail">
+								<span>Email</span>
+								<input id="inputEmail" class="input" type="email" name="email" required>
+							</label>
+							<label for="textarea">
+								<span>Message</span>
+								<textarea id="textarea" class="input" name="message" required></textarea>
+							</label>
+							<button class=" btn-theme" type="submit">Submit</button>
+						</form>
+					</div>
+
+				</section>
 			</main>
 			{% include "html/includes/_footer.njk" %}
 		</div>

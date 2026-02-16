@@ -1,0 +1,14 @@
+@use "vars" as *;
+.logo {
+	flex: 0 0 164px;
+	display: block;
+	position: relative;
+	z-index: 5;
+	@media (max-width: ($md3 + px)) {
+		flex: 0 0 120px;
+	}
+	svg {
+		display: block;
+		width: 100%;
+	}
+}

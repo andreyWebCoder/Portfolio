@@ -5,34 +5,4 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="img/icons/favicon.svg" type="images/svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script>
-		function addDarkClass() {
-			try {
-				if (localStorage.getItem("theme") === "night-theme") {
-					document
-						.body
-						.classList
-						.add("night-theme");
-					togButton
-						.classList
-						.remove("_ic-moon");
-					togButton
-						.classList
-						.add("_ic-sun");
-				} else {
-					document
-						.body
-						.classList
-						.remove("night-theme");
-					togButton
-						.classList
-						.remove("_ic-sun");
-					togButton
-						.classList
-						.add("_ic-moon");
-				}
-			} catch (err) {}
-		}
-		addDarkClass();
-	</script>
 </head>

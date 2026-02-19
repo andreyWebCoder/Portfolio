@@ -5,6 +5,35 @@
 	{% include "html/includes/_head.njk" %}
 
 	<body>
+		<script>
+			function addDarkClass() {
+				try {
+					if (localStorage.getItem("theme") === "night-theme") {
+						document
+							.body
+							.classList
+							.add("night-theme");
+						togButton
+							.classList
+							.remove("_ic-moon");
+						togButton
+							.classList
+							.add("_ic-sun");
+					} else {
+						document
+							.body
+							.classList
+							.remove("night-theme");
+						togButton
+							.classList
+							.remove("_ic-sun");
+						togButton
+							.classList
+							.add("_ic-moon");
+					}
+				} catch (err) {}
+			}
+		</script>
 		<div class="progress"></div>
 		<div class="wrapper">
 			{% include "html/includes/_header.njk" %}
@@ -148,7 +177,7 @@
 						<div class="contacts-page__links">
 							<div class="contacts-page__item">
 								<a href="tel:+380967591329" class="contacts-page__link">
-									<span class="contacts-page__icon _icon-call"></span>
+									<span class="contacts-page__icon _ic-call"></span>
 									<span class="contacts-page__text">
 										<span>Позвонить:</span> +38&nbsp;(096)&nbsp;75-&nbsp;91-&nbsp;329
 								</span>
@@ -156,7 +185,7 @@
 							</div>
 							<div class="contacts-page__item">
 								<a href="mailto:foresteraws@gmail.com" class="contacts-page__link">
-									<span class="contacts-page__icon _icon-mail"></span>
+									<span class="contacts-page__icon _ic-mail"></span>
 									<span class="contacts-page__text">
 										<span>Написать: </span>foresteraws@gmail.com</span>
 								</a>
@@ -226,7 +255,7 @@
 								<span>Message</span>
 								<textarea id="textarea" class="input" name="message" required></textarea>
 							</label>
-							<button class=" btn-theme" type="submit">Submit</button>
+							<button class=" bt-theme" type="submit">Submit</button>
 						</form>
 					</div>
 

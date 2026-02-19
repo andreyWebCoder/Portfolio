@@ -2,14 +2,8 @@
 ._container {
 	max-width: $maxWidthContainer + px;
 	margin: 0 auto;
-	@media (max-width: #{$md1 + px}) {
-		max-width: 970px;
-	}
-	@media (max-width: #{$md2 + px}) {
-		max-width: 750px;
-	}
+	padding: 0 25px;
 	@media (max-width: #{$md3 + px}) {
-		max-width: none;
 		padding: 0 10px;
 	}
 }

@@ -4,9 +4,10 @@ const translations = {
 		titleWork: "Мои проекты",
 		titleAbout: "Обо мне",
 		// header nav links
-		headerNav1: "Мои проекты",
+		headerNav1: "Проекты",
 		headerNav2: "Обо мне",
 		headerNav3: "Контакты",
+		headerNav3: "Форма",
 		// filters nav links
 		filtersNav1: "Все",
 		filtersNav2: "Лендинги",
@@ -22,9 +23,10 @@ const translations = {
 		titleWork: "My projects",
 		titleAbout: "About me",
 		// header nav links
-		headerNav1: "My projects",
+		headerNav1: "Projects",
 		headerNav2: "About me",
 		headerNav3: "Contacts",
+		headerNav4: "Form",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Landing pages",
@@ -40,9 +42,10 @@ const translations = {
 		titleWork: "Мої проекти",
 		titleAbout: "Про мене",
 		// header nav links
-		headerNav1: "Мої проекти",
+		headerNav1: "Проекти",
 		headerNav2: "Про мене",
 		headerNav3: "Контакти",
+		headerNav4: "Форма",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Лендінги",

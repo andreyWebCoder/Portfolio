@@ -36,7 +36,7 @@ function select_init(select) {
 	select.setAttribute('data-default', select_selected_option.value);
 	select.style.display = 'none';
 
-	select_parent.insertAdjacentHTML('beforeend', '<div class="select select_' + select_modifikator + '"></div>');
+	select_parent.insertAdjacentHTML('beforeend', '<div class="select select-' + select_modifikator + '"></div>');
 
 	let new_select = select.parentElement.querySelector('.select');
 	new_select.appendChild(select);
@@ -56,9 +56,9 @@ function select_item(select) {
 
 	let select_type_content = '';
 	if (select_type == 'input') {
-		select_type_content = '<div class="select__value icon-select-arrow"><input autocomplete="off" type="text" name="form[]" value="' + select_selected_text + '" data-error="Ошибка" data-value="' + select_selected_text + '" class="select__input"></div>';
+		select_type_content = '<div class="select__value bt-ic"><input autocomplete="off" type="text" name="form[]" value="' + select_selected_text + '" data-error="Ошибка" data-value="' + select_selected_text + '" class="select__input"></div>';
 	} else {
-		select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
+		select_type_content = '<div class="select__value bt-ic"><span>' + select_selected_text + '</span></div>';
 	}
 
 	select_parent.insertAdjacentHTML('beforeend',

@@ -1,13 +1,27 @@
 :root {
-	--wd-white: #fff;
-	--wd-black: #000;
-	--wd-gray: #b2b3b3;
-	--wd-primary: #3a799e;
+	--wc-white: #ffffff;
+	--wc-black: #000000;
+	--wc-gray: #b2b3b3;
+	--wc-gray-100: #dbdbdb;
+	--wc-gray-200: #c5c5c5;
+	--wc-gray-800: #272727;
+	--wc-gray-900: #181818;
+	--wc-primary: #19bd9a;
+	--wc-secondary: #3a799e;
+	--wc-danger: #e93232;
 
-	--wd-text: var(--wd-black);
-	--wd-bg-body: var(--wd-white);
+	--wc-text-color: var(--wc-black);
+	--wc-bg-body: var(--wc-gray-100);
 
-	--wd-logo-fill: var(--wd-text);
-	--wd-logo-dark: var(--wd-text);
-	--wd-logo-light: var(--wd-black);
+	--wc-blur-bg: rgba(182, 181, 181, 0.5);
+
+	--wc-menu-link-color: var(--wc-text-color);
+	--wc-active-text: var(--wc-gray-800);
+	--wc-hover-text: var(--wc-gray-800);
+
+	--wc-logo-fill: var(--wc-text-color);
+	--wc-logo-dark: var(--wc-text-color);
+	--wc-logo-light: var(--wc-black);
+
+	--wc-select-options-bg: var(--wc-gray);
 }

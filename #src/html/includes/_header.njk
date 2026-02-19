@@ -1,6 +1,5 @@
 <header id="header" class="header">
-	<div class="header__content _container">
-		{# <a href="#" class="header__logo"><img src="img/header/avatar.jpg" alt="Logo"/></a> #}
+	<div class="header__content">
 		{% include "html/includes/_logo.njk" %}
 		<div class="header__menu menu">
 			<nav class="menu__body">
@@ -14,28 +13,29 @@
 					<li class="menu__item">
 						<a href="#contacts-page" class="menu__link" data-key="headerNav3">Контакты</a>
 					</li>
+					<li class="menu__item">
+						<a href="#contacts-page" class="menu__link" data-key="headerNav4">Форма</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
-		<div class="header__contacts">
-			<a href="mailto:foresteraws@gmail.com" class="header__link tooltip-container _icon-mail">
-				<span class="tooltip-box">Подсказка на русском</span>
-			</a>
-			<a href="https://t.me/MarkupDev" class="header__link tooltip-container _icon-tekegram" target=" _blank">
-				<span class="tooltip-box">Подсказка на русском</span>
-			</a>
-			<select id="language-select" class="header__select" name="lang">
-				<option value="ua" selected>UA</option>
-				<option value="en">EN</option>
-				<option value="ru">RU</option>
-			</select>
-			<button id="toggle-bg" type="button" class="btn-theme">Theme</button>
+		<div class="header__contacts" data-da=".menu,768.98,0">
+			<a href="mailto:foresteraws@gmail.com" class="header__link bt-ic _ic-email"></a>
+			<a href="https://t.me/MarkupDev" class="header__link bt-ic _ic-telegram" target=" _blank"></a>
+			<button id="toggle-bg" type="button" class="bt-ic _ic-moon"></button>
+			<div>
+				<select id="language-select" class="header__select" name="lang">
+					<option value="ua" selected>UA</option>
+					<option value="en">EN</option>
+					<option value="ru">RU</option>
+				</select>
+			</div>
 		</div>
-
-		<button class="menu__bt bt-menu">
+		<button type="button"  class="menu__bt bt-menu">
 			<span></span>
 			<span></span>
 			<span></span>
 		</button>
+
 	</div>
 </header>

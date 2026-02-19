@@ -79,6 +79,8 @@ togButton.addEventListener("click", (event) => {
 	addDarkClass();
 });
 
+
+addDarkClass();
 // // Pagination
 // // 1. Сохраняем все карточки в массив и УДАЛЯЕМ их из DOM сразу
 // const cardContainer = document.querySelector('.portfolio-page__content'); // контейнер для карточек

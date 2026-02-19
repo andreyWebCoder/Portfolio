@@ -73,36 +73,36 @@ if (location.hash) {
 }
 //=================
 //Menu
-let iconMenu = document.querySelector(".bt-menu");
-if (iconMenu != null) {
+let btnMenu = document.querySelector(".bt-menu");
+if (btnMenu != null) {
 	let delay = 500;
-	let menuBody = document.querySelector(".menu__body");
+	let menuBody = document.querySelector(".menu");
 	let menuLinks = document.querySelectorAll(".menu__link");
 	if (menuLinks.length > 0) {
 		menuLinks.forEach(menuLink => {
 			menuLink.addEventListener("click", menuClose);
 		});
 		function menuClose(e) {
-			if (iconMenu.classList.contains("_active")) {
+			if (btnMenu.classList.contains("_active")) {
 				body_lock(delay);
-				iconMenu.classList.remove("_active");
+				btnMenu.classList.remove("_active");
 				menuBody.classList.remove("_active");
 			}
 		}
 	}
-	iconMenu.addEventListener("click", function (e) {
+	btnMenu.addEventListener("click", function (e) {
 		if (unlock) {
 			body_lock(delay);
-			iconMenu.classList.toggle("_active");
+			btnMenu.classList.toggle("_active");
 			menuBody.classList.toggle("_active");
 		}
 	});
 };
 
 function menu_close() {
-	let iconMenu = document.querySelector(".bt-menu");
-	let menuBody = document.querySelector(".menu__body");
-	iconMenu.classList.remove("_active");
+	let btnMenu = document.querySelector(".bt-menu");
+	let menuBody = document.querySelector(".menu");
+	btnMenu.classList.remove("_active");
 	menuBody.classList.remove("_active");
 }
 
@@ -332,9 +332,10 @@ const translations = {
 		titleWork: "Мои проекты",
 		titleAbout: "Обо мне",
 		// header nav links
-		headerNav1: "Мои проекты",
+		headerNav1: "Проекты",
 		headerNav2: "Обо мне",
 		headerNav3: "Контакты",
+		headerNav3: "Форма",
 		// filters nav links
 		filtersNav1: "Все",
 		filtersNav2: "Лендинги",
@@ -350,9 +351,10 @@ const translations = {
 		titleWork: "My projects",
 		titleAbout: "About me",
 		// header nav links
-		headerNav1: "My projects",
+		headerNav1: "Projects",
 		headerNav2: "About me",
 		headerNav3: "Contacts",
+		headerNav4: "Form",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Landing pages",
@@ -368,9 +370,10 @@ const translations = {
 		titleWork: "Мої проекти",
 		titleAbout: "Про мене",
 		// header nav links
-		headerNav1: "Мої проекти",
+		headerNav1: "Проекти",
 		headerNav2: "Про мене",
 		headerNav3: "Контакти",
+		headerNav4: "Форма",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Лендінги",
@@ -465,6 +468,8 @@ togButton.addEventListener("click", (event) => {
 	addDarkClass();
 });
 
+
+addDarkClass();
 // // Pagination
 // // 1. Сохраняем все карточки в массив и УДАЛЯЕМ их из DOM сразу
 // const cardContainer = document.querySelector('.portfolio-page__content'); // контейнер для карточек
@@ -579,7 +584,7 @@ function select_init(select) {
 	select.setAttribute('data-default', select_selected_option.value);
 	select.style.display = 'none';
 
-	select_parent.insertAdjacentHTML('beforeend', '<div class="select select_' + select_modifikator + '"></div>');
+	select_parent.insertAdjacentHTML('beforeend', '<div class="select select-' + select_modifikator + '"></div>');
 
 	let new_select = select.parentElement.querySelector('.select');
 	new_select.appendChild(select);
@@ -599,9 +604,9 @@ function select_item(select) {
 
 	let select_type_content = '';
 	if (select_type == 'input') {
-		select_type_content = '<div class="select__value icon-select-arrow"><input autocomplete="off" type="text" name="form[]" value="' + select_selected_text + '" data-error="Ошибка" data-value="' + select_selected_text + '" class="select__input"></div>';
+		select_type_content = '<div class="select__value bt-ic"><input autocomplete="off" type="text" name="form[]" value="' + select_selected_text + '" data-error="Ошибка" data-value="' + select_selected_text + '" class="select__input"></div>';
 	} else {
-		select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
+		select_type_content = '<div class="select__value bt-ic"><span>' + select_selected_text + '</span></div>';
 	}
 
 	select_parent.insertAdjacentHTML('beforeend',
@@ -975,3 +980,165 @@ if (priceSlider) {
 		priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
 	}
 }
+// Dynamic Adapt v.1
+// HTML data-da="where(uniq class name),when(breakpoint),position(digi)"
+// e.x. data-da=".item,992,2"
+// Andrikanych Yevhen 2020
+// https://www.youtube.com/c/freelancerlifestyle
+
+"use strict";
+
+
+function DynamicAdapt(type) {
+	this.type = type;
+}
+
+DynamicAdapt.prototype.init = function () {
+	const _this = this;
+	// массив объектов
+	this.оbjects = [];
+	this.daClassname = "_dynamic_adapt_";
+	// массив DOM-элементов
+	this.nodes = document.querySelectorAll("[data-da]");
+
+	// наполнение оbjects объктами
+	for (let i = 0; i < this.nodes.length; i++) {
+		const node = this.nodes[i];
+		const data = node.dataset.da.trim();
+		const dataArray = data.split(",");
+		const оbject = {};
+		оbject.element = node;
+		оbject.parent = node.parentNode;
+		оbject.destination = document.querySelector(dataArray[0].trim());
+		оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+		оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+		оbject.index = this.indexInParent(оbject.parent, оbject.element);
+		this.оbjects.push(оbject);
+	}
+
+	this.arraySort(this.оbjects);
+
+	// массив уникальных медиа-запросов
+	this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+		return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+	}, this);
+	this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+		return Array.prototype.indexOf.call(self, item) === index;
+	});
+
+	// навешивание слушателя на медиа-запрос
+	// и вызов обработчика при первом запуске
+	for (let i = 0; i < this.mediaQueries.length; i++) {
+		const media = this.mediaQueries[i];
+		const mediaSplit = String.prototype.split.call(media, ',');
+		const matchMedia = window.matchMedia(mediaSplit[0]);
+		const mediaBreakpoint = mediaSplit[1];
+
+		// массив объектов с подходящим брейкпоинтом
+		const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+			return item.breakpoint === mediaBreakpoint;
+		});
+		matchMedia.addListener(function () {
+			_this.mediaHandler(matchMedia, оbjectsFilter);
+		});
+		this.mediaHandler(matchMedia, оbjectsFilter);
+	}
+};
+
+DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
+	if (matchMedia.matches) {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			оbject.index = this.indexInParent(оbject.parent, оbject.element);
+			this.moveTo(оbject.place, оbject.element, оbject.destination);
+		}
+	} else {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			if (оbject.element.classList.contains(this.daClassname)) {
+				this.moveBack(оbject.parent, оbject.element, оbject.index);
+			}
+		}
+	}
+};
+
+// Функция перемещения
+DynamicAdapt.prototype.moveTo = function (place, element, destination) {
+	element.classList.add(this.daClassname);
+	if (place === 'last' || place >= destination.children.length) {
+		destination.insertAdjacentElement('beforeend', element);
+		return;
+	}
+	if (place === 'first') {
+		destination.insertAdjacentElement('afterbegin', element);
+		return;
+	}
+	destination.children[place].insertAdjacentElement('beforebegin', element);
+}
+
+// Функция возврата
+DynamicAdapt.prototype.moveBack = function (parent, element, index) {
+	element.classList.remove(this.daClassname);
+	if (parent.children[index] !== undefined) {
+		parent.children[index].insertAdjacentElement('beforebegin', element);
+	} else {
+		parent.insertAdjacentElement('beforeend', element);
+	}
+}
+
+// Функция получения индекса внутри родителя
+DynamicAdapt.prototype.indexInParent = function (parent, element) {
+	const array = Array.prototype.slice.call(parent.children);
+	return Array.prototype.indexOf.call(array, element);
+};
+
+// Функция сортировки массива по breakpoint и place 
+// по возрастанию для this.type = min
+// по убыванию для this.type = max
+DynamicAdapt.prototype.arraySort = function (arr) {
+	if (this.type === "min") {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return -1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return 1;
+				}
+
+				return a.place - b.place;
+			}
+
+			return a.breakpoint - b.breakpoint;
+		});
+	} else {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return 1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return -1;
+				}
+
+				return b.place - a.place;
+			}
+
+			return b.breakpoint - a.breakpoint;
+		});
+		return;
+	}
+};
+
+const da = new DynamicAdapt("max");
+da.init();

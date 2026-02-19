@@ -1,7 +1,6 @@
 @use "vars" as *;
 .tooltip-container {
 	position: relative;
-	display: inline-block;
 }
 
 .tooltip-box {
@@ -17,7 +16,7 @@
 	/* Стили */
 	width: max-content;
 	background-color: #333;
-	color: var(--wd-text);
+	color: var(--wc-text-color);
 	padding: 6px;
 	border-radius: 6px;
 	z-index: 10;

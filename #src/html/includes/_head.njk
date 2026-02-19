@@ -13,11 +13,23 @@
 						.body
 						.classList
 						.add("night-theme");
+					togButton
+						.classList
+						.remove("_ic-moon");
+					togButton
+						.classList
+						.add("_ic-sun");
 				} else {
 					document
 						.body
 						.classList
 						.remove("night-theme");
+					togButton
+						.classList
+						.remove("_ic-sun");
+					togButton
+						.classList
+						.add("_ic-moon");
 				}
 			} catch (err) {}
 		}

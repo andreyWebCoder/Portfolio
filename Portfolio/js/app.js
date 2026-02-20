@@ -109,12 +109,12 @@ function menu_close() {
 // =====================Добавляет активний клас а при нажатии на соседний елемен удаляет его 
 window.onload = function () {
 	if (isMobile.any()) {
-		document.querySelectorAll('.portfolio-page__item').forEach(function (link, index) {
+		document.querySelectorAll('.portfolio__item').forEach(function (link, index) {
 			link.addEventListener('click', function () {
 				if (this.classList.contains('_hover')) {
 					this.classList.remove('_hover');
 				} else {
-					const activeLink = document.querySelector('.portfolio-page__item._hover');
+					const activeLink = document.querySelector('.portfolio__item._hover');
 					if (activeLink) {
 						activeLink.classList.remove('_hover');
 					}
@@ -392,26 +392,7 @@ let parallaxInstance = new Parallax(scene, {
 	hoverOnly: true,
 });
 
-let goTop = document.querySelector(".page__arrow");
-window.addEventListener("scroll", trackScroll);
-goTop.addEventListener("click", backToTop);
-function trackScroll() {
-	let scroll = window.pageYOffset;
-	let coord = document.documentElement.clientHeight;
 
-	if (scroll > coord) {
-		goTop.classList.add("_active");
-	}
-	if (scroll < coord) {
-		goTop.classList.remove("_active");
-	}
-}
-function backToTop() {
-	if (window.pageYOffset > 0) {
-		window.scrollBy(0, -80);
-		setTimeout(backToTop, 0);
-	}
-}
 
 // Change language
 const select = document.getElementById('language-select');
@@ -467,59 +448,8 @@ togButton.addEventListener("click", (event) => {
 	}
 	addDarkClass();
 });
-
-
 addDarkClass();
-// // Pagination
-// // 1. Сохраняем все карточки в массив и УДАЛЯЕМ их из DOM сразу
-// const cardContainer = document.querySelector('.portfolio-page__content'); // контейнер для карточек
-// const allCards = Array.from(document.querySelectorAll('.portfolio-page__row'));
-// const limit = 10;
-// const nav = document.getElementById('pagination');
 
-// let currentPage = 1;
-// const totalPages = Math.ceil(allCards.length / limit);
-
-// function render() {
-// 	// Очищаем контейнер полностью (убираем элементы из DOM)
-// 	cardContainer.innerHTML = '';
-
-// 	// Вырезаем нужную часть массива
-// 	const start = (currentPage - 1) * limit;
-// 	const end = start + limit;
-// 	const cardsToDisplay = allCards.slice(start, end);
-
-// 	// Добавляем в DOM только эти 10 (или меньше) карточек
-// 	cardsToDisplay.forEach(card => cardContainer.appendChild(card));
-
-// 	// Обновляем состояние кнопок
-// 	document.getElementById('prevBtn').disabled = (currentPage === 1);
-// 	document.getElementById('nextBtn').disabled = (currentPage === totalPages);
-// }
-
-// // Создание навигации (только если карточек > 10)
-// if (allCards.length > limit) {
-// 	const prevBtn = document.createElement('button');
-// 	prevBtn.id = 'prevBtn';
-// 	prevBtn.textContent = 'Назад';
-// 	prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; render(); } };
-// 	nav.appendChild(prevBtn);
-
-// 	for (let i = 1; i <= totalPages; i++) {
-// 		const btn = document.createElement('button');
-// 		btn.textContent = i;
-// 		btn.onclick = () => { currentPage = i; render(); };
-// 		nav.appendChild(btn);
-// 	}
-
-// 	const nextBtn = document.createElement('button');
-// 	nextBtn.id = 'nextBtn';
-// 	nextBtn.textContent = 'Вперед';
-// 	nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; render(); } };
-// 	nav.appendChild(nextBtn);
-
-// 	render(); // Первый запуск
-// }
 
 const getId = (link) => link.getAttribute('href').replace('#', '');
 const headerHeight = document.querySelector('.header').offsetHeight;
@@ -545,6 +475,18 @@ document.querySelector('.menu__list').addEventListener('click', (e) => {
 			behavior: "smooth",
 		});
 	}
+});
+
+const goTop = document.querySelector(".page__arrow");
+const screenHeight = document.documentElement.clientHeight;
+
+window.addEventListener("scroll", () => {
+	// Используем toggle для лаконичности
+	goTop.classList.toggle("_active", window.scrollY > screenHeight);
+});
+
+goTop.addEventListener("click", () => {
+	window.scrollTo({ top: 0, behavior: "smooth" });
 });
 //Select
 let selects = document.getElementsByTagName('select');
@@ -738,9 +680,9 @@ function selects_update_all() {
 		}
 	}
 }
-const container = document.querySelector('.portfolio-page__content');
+const container = document.querySelector('.portfolio__content');
 // Забираем карточки из DOM и сразу превращаем в массив объектов
-const allCards = Array.from(document.querySelectorAll('.portfolio-page__card'));
+const allCards = Array.from(document.querySelectorAll('.portfolio__card'));
 const itemsPerPage = 6;
 let currentPage = 1;
 let currentFilter = '*';
@@ -838,14 +780,14 @@ function renderPagination(totalItems) {
 	};
 
 	ul.appendChild(createItem(
-		createBtn('<', 'pagination__btn prev-btn', currentPage === 1, () => {
+		createBtn('', 'pagination__bt prev-bt _ic-chevron-left', currentPage === 1, () => {
 			currentPage--;
 			updatePortfolio(true);
 		})
 	));
 
 	for (let i = 1; i <= pageCount; i++) {
-		const btn = createBtn(i, 'pagination__page page-btn', false, () => {
+		const btn = createBtn(i, 'pagination__bt page-bt', false, () => {
 			currentPage = i;
 			updatePortfolio(true);
 		});
@@ -854,7 +796,7 @@ function renderPagination(totalItems) {
 	}
 
 	ul.appendChild(createItem(
-		createBtn('>', 'pagination__btn next-btn', currentPage === pageCount, () => {
+		createBtn('', 'pagination__bt next-bt _ic-chevron-right', currentPage === pageCount, () => {
 			currentPage++;
 			updatePortfolio(true);
 		})

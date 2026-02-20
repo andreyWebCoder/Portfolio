@@ -1,6 +1,6 @@
-const container = document.querySelector('.portfolio-page__content');
+const container = document.querySelector('.portfolio__content');
 // Забираем карточки из DOM и сразу превращаем в массив объектов
-const allCards = Array.from(document.querySelectorAll('.portfolio-page__card'));
+const allCards = Array.from(document.querySelectorAll('.portfolio__card'));
 const itemsPerPage = 6;
 let currentPage = 1;
 let currentFilter = '*';
@@ -98,14 +98,14 @@ function renderPagination(totalItems) {
 	};
 
 	ul.appendChild(createItem(
-		createBtn('<', 'pagination__btn prev-btn', currentPage === 1, () => {
+		createBtn('', 'pagination__bt prev-bt _ic-chevron-left', currentPage === 1, () => {
 			currentPage--;
 			updatePortfolio(true);
 		})
 	));
 
 	for (let i = 1; i <= pageCount; i++) {
-		const btn = createBtn(i, 'pagination__page page-btn', false, () => {
+		const btn = createBtn(i, 'pagination__bt page-bt', false, () => {
 			currentPage = i;
 			updatePortfolio(true);
 		});
@@ -114,7 +114,7 @@ function renderPagination(totalItems) {
 	}
 
 	ul.appendChild(createItem(
-		createBtn('>', 'pagination__btn next-btn', currentPage === pageCount, () => {
+		createBtn('', 'pagination__bt next-bt _ic-chevron-right', currentPage === pageCount, () => {
 			currentPage++;
 			updatePortfolio(true);
 		})

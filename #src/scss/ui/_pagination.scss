@@ -1,48 +1,48 @@
 @use "vars" as *;
-.pagination-btn {
-	cursor: pointer;
-	transition: all 0.3s ease;
-	&:disabled {
-		cursor: not-allowed;
-		opacity: 0.5;
-	}
-	&.active {
-		background-color: #000; /* Ваш цвет */
-		color: #fff;
-	}
-}
 .pagination {
+	margin-top: 25px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 8px;
 
-	&__btn {
+	&__bt {
+		letter-spacing: -0.02em;
+		line-height: 1;
+		color: var(--wc-text-color);
+		border: 1px solid var(--wc-text-color);
+		font-size: 16px;
+		height: 36px;
+		width: 36px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		border-radius: 50%;
-		width: 32px;
-		height: 32px;
-		color: black;
-
+		transition: all 0.3s ease 0s;
+		background-color: transparent;
+		@media (max-width: ($md3 + px)) {
+			height: 44px;
+			width: 44px;
+		}
+		&::before {
+			font-size: 24px;
+		}
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: rgb(129, 101, 101);
+				background-color: var(--wc-blur-bg);
 			}
 		}
 
 		&.active {
-			border-color: rgb(218, 143, 143);
+			border-width: 1px;
+			border-color: var(--wc-primary);
 		}
 
 		&:disabled {
-			color: #a4afc8;
+			color: var(--wc-gray-600);
+			background-color: var(--wc-gray);
+			border-color: var(--wc-gray);
 			pointer-events: none;
-		}
-
-		&_prev {
-			transform: rotate(90deg);
-		}
-
-		&_next {
-			transform: rotate(-90deg);
 		}
 	}
 
@@ -52,51 +52,5 @@
 	}
 
 	&__item {
-		&:not(:last-child) {
-			margin: 0px 2px 0px 0px;
-		}
-	}
-
-	&__page {
-		letter-spacing: -0.02em;
-		line-height: 1;
-		color: black;
-		font-size: 16px;
-		height: 32px;
-		width: 32px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid transparent;
-		border-radius: 50%;
-		transition: all 0.3s ease 0s;
-
-		@media (any-hover: hover) {
-			&:hover {
-				background-color: rgb(129, 101, 101);
-			}
-		}
-
-		&.active {
-			border-color: rgb(218, 143, 143);
-			background-color: transparent;
-		}
-
-		&.disabled {
-			color: gray;
-			pointer-events: none;
-		}
-	}
-
-	&__dots {
-		letter-spacing: -0.02em;
-		line-height: 1;
-		color: black;
-		font-size: 16px;
-		height: 32px;
-		width: 32px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
 	}
 }

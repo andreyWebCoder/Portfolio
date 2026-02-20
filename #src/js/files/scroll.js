@@ -23,3 +23,15 @@ document.querySelector('.menu__list').addEventListener('click', (e) => {
 		});
 	}
 });
+
+const goTop = document.querySelector(".page__arrow");
+const screenHeight = document.documentElement.clientHeight;
+
+window.addEventListener("scroll", () => {
+	// Используем toggle для лаконичности
+	goTop.classList.toggle("_active", window.scrollY > screenHeight);
+});
+
+goTop.addEventListener("click", () => {
+	window.scrollTo({ top: 0, behavior: "smooth" });
+});

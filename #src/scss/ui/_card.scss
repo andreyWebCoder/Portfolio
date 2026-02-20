@@ -183,24 +183,6 @@
 	// .card__label-btn
 
 	&__label-btn {
-		display: inline-flex;
-		padding: 9.5px 28.5px;
-		font-size: 16px;
-		color: #8fafaf;
-		border: 1px solid #8fafaf;
-		border-radius: 19px;
-		transition: all 0.5s ease 0s;
-		@media (max-width: #{$md4 + px}) {
-			padding: 9.5px 18.5px;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: #fff;
-				background-color: #19bd9a;
-				transform: translate(2px);
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-			}
-		}
 	}
 }
 @keyframes fadeInUp {

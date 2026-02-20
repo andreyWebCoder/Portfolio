@@ -1,0 +1,10 @@
+{% macro badge(props, class) %}
+	<div class="{{class}} badge">
+		<div class="badge__inner">
+			<div class="badge__img">
+				<img  src="img/icons/{{props.img}}.svg" alt="{{props.alt}}">
+			</div>
+			<span class="badge__text">{{props.text}}</span>
+		</div>
+	</div>
+{% endmacro %}

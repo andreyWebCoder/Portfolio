@@ -1,4 +1,5 @@
 {% import "html/data/_indexData.njk" as data %}
+{% from "html/includes/_badge.njk" import badge%}
 <!DOCTYPE html>
 <html lang="ru">
 	{% set title = "Главная страница" %}
@@ -39,7 +40,28 @@
 			{% include "html/includes/_header.njk" %}
 			<main class="page">
 				<!-- ===================button scroll top============== -->
-				<a href="#header" class="page__arrow _goto"></a>
+				<a href="#header" class="page__arrow"></a>
+				<section class="page__hero hero">
+					<div class="hero__container _container">
+						<div class="hero__body">
+							<div class="hero__content">
+								<div class="hero__info">
+									<h1 class="hero__title title" data-key="titleHero">Hi, I am <br> Shupyk Andrii</h1>
+									<div class="hero__label" data-key="labelHero">UI Developer (HTML, CSS, JavaScript)</div>
+									<a href="files/Profile.pdf" class="bt _ic-download"  download="CV UI Developer.pdf"  data-key="downloadHero">Download CV</a>
+								</div>
+								<div class="hero__img">
+									<img src="img/hero/man.svg" alt="young man sitting with a laptop and waving his hand">
+								</div>
+							</div>
+							<div class="hero__actions">
+								{% for item in data.heroBadges %}
+									{{badge(item, 'hero__badge')}}
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</section>
 				<section id="portfolio-page" class="page__portfolio portfolio-page">
 					<div class="portfolio-page__container _container">
 						<h2 class="portfolio-page__title title" data-key="titleWork"></h2>
@@ -230,7 +252,7 @@
 					</div>
 
 				</section>
-				<section class="page__form ">
+				<section id="form-page" class="page__form ">
 					<div class="form-page__container _container">
 						<h2 class="form-page__title title" data-key="titleForm">Send mail</h2>
 						<form id="form" class="form" action="https://api.web3forms.com/submit" method="POST">

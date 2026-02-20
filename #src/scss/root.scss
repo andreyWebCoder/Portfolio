@@ -4,10 +4,13 @@
 	--wc-gray: #b2b3b3;
 	--wc-gray-100: #dbdbdb;
 	--wc-gray-200: #c5c5c5;
+
+	--wc-gray-600: #828282;
+	--wc-gray-700: #525252;
 	--wc-gray-800: #272727;
 	--wc-gray-900: #181818;
 	--wc-primary: #19bd9a;
-	--wc-secondary: #3a799e;
+	--wc-secondary: #455174;
 	--wc-danger: #e93232;
 
 	--wc-text-color: var(--wc-black);
@@ -24,4 +27,8 @@
 	--wc-logo-light: var(--wc-black);
 
 	--wc-select-options-bg: var(--wc-gray);
+
+	--wc-bt-color: var(--wc-black);
+	--wc-bt-color-disabled: var(--wc-gray);
+	--wc-bt-bg-hover: var(--wc-primary);
 }

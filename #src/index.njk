@@ -63,7 +63,7 @@
 						</div>
 					</div>
 				</section>
-				<!-- ===================works============== -->
+				<!-- ===================portfolio============== -->
 				<section id="portfolio-page" class="page__portfolio portfolio">
 					<div class="portfolio__container _container">
 						<h2 class="portfolio__title title" data-key="titleWork"></h2>
@@ -83,8 +83,13 @@
 										<div class="card__img _ibg">
 											<img src="{{ item.img.src }}" alt="{{ item.img.alt }}" >
 										</div>
-										<a href="{{ item.link }}" class="card__hover" target="_blank">
-											<div class="card__label">
+										<a 
+										href="{{ item.link }}" 
+										class="card__hover{{' ' + '_popup-link' if item.popup }}" 
+										{% if not item.popup %}
+											target="_blank"
+										{% endif %}>
+											<div class="card__label title-card">
 												<span>{{ item.label }}</span>
 											</div>
 											<p class="card__text">{{ item.text }}</p>
@@ -95,6 +100,7 @@
 							{% endfor %}
 						</div>
 						<nav class="pagination-nav" aria-label="Page navigation items with my works"></nav>
+
 					</div>
 				</section>
 				<section id="about-page" class="page__about about-page">
@@ -287,6 +293,7 @@
 			</main>
 			{% include "html/includes/_footer.njk" %}
 		</div>
+		{% include "html/includes/_popup.njk" %}
 		{% include "html/includes/_js.njk" %}
 	</body>
 

@@ -58,9 +58,10 @@
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка 6-ти страниц интернет магазина. C применением: анимаций CSS, меню бургер, js.',
 		classes: 'many-pages',
-		label: 'Аvenue-fashion(six page)',
-		img: {src:'img/portfolio/Site6.jpg', alt:'Аvenue-fashion(six page)'},
-		link:'https://andreywebcoder.github.io/avenue-fashion-six-page/'
+		label: 'Аvenue-fashion',
+		img: {src:'img/portfolio/ave-home.jpg', alt:'Аvenue-fashion(six page)'},
+		link:'#ave',
+		popup:true
 	},{	
 		text: 'Адаптивная кросбраузерная HTML-верстка главной страницы интернет магазина. C применением: анимацый CSS, меню бургер, js.',
 		classes: 'lending jquery',
@@ -88,7 +89,45 @@
 	}
 	
 ] %}
-
+{% set cardPrevave = [
+	{
+		title: 'Главная',
+		img: 'img/portfolio/ave-home.jpg',
+		alt: 'screenshot ave home',
+		key: 'aveCardTitleHome',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/'
+	},{
+		title: 'Бренд',
+		img: 'img/portfolio/ave-brand.jpg',
+		alt: 'screenshot ave brand',
+		key: 'aveCardTitleBrand',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/brand'
+	},{
+		title: 'Просмотр товара',
+		img: 'img/portfolio/ave-product.jpg',
+		alt: 'screenshot ave product view',
+		key: 'aveCardTitleProduct',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/product-view'
+	},{
+		title: 'Обзоры товаров',
+		img: 'img/portfolio/ave-look-book.jpg',
+		alt: 'screenshot ave lookbook',
+		key: 'aveCardTitleLookbook',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/lookbook'
+	},{
+		title: 'Местные магазины',
+		img: 'img/portfolio/ave-local-stores.jpg',
+		alt: 'screenshot ave lokal stores',
+		key: 'aveCardTitleLokal',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/lokal'
+	},{
+		title: 'Форма регистрации',
+		img: 'img/portfolio/ave-form.jpg',
+		alt: 'screenshot ave form registration',
+		key: 'aveCardTitleForm',
+		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/register'
+	}
+] %}
 {% set heroBadges = [
 	{
 		text: 'HTML 5',

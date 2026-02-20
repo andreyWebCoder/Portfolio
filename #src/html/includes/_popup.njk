@@ -1,22 +1,27 @@
-<div class="popup popup_popup">
+{% import "html/data/_indexData.njk" as data %}
+<div class="popup popup_ave">
 	<div class="popup__content">
 		<div class="popup__body">
-			<div class="popup__close"></div>
-		</div>
-	</div>
-</div>
-<div class="popup popup_massagename-message">
-	<div class="popup__content">
-		<div class="popup__body">
-			<div class="popup__close"></div>
-		</div>
-	</div>
-</div>
-<div class="popup popup_video">
-	<div class="popup__content">
-		<div class="popup__body">
-			<div class="popup__close popup__close_video"></div>
-			<div class="popup__video _video"></div>
+			<h3 class="title">Аvenue fashion</h3>
+			<div class="card-inner">
+				{% for item in data.cardPrevave %}
+					<div class="card-prev">
+						<div class="card-prev__container" >
+							<div class="card-prev__img _ibg">
+								<img src="{{item.img}}" alt="{{item.alt}}">
+							</div>
+							<div class="card-prev__row">
+								<div class="card-prev__title title-card" data-key="{{ item.key }}">
+									<span>{{item.title}}</span>
+								</div>
+								<a href="{{item.link}}" class="bt bt-sm bt-light _ic-top-right" target="_blank">Посмотреть</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				<button type="button" class="popup__close _ic-close"></button>
+			</div>
+
 		</div>
 	</div>
 </div>

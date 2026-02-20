@@ -1,14 +1,4 @@
-// ===========================Прогресс бар при сколле======================
-const progress = document.querySelector('.progress');
-window.addEventListener('scroll', progressBar);
-function progressBar(e) {
-	let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
-	let windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-	let persent = windowScroll / windowHeight * 100;
-	progress.style.width = persent + '%';
-	progress.classList.add('_scroll');
-}
-// ===========================Прогресс бар при сколле======================
+
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
@@ -73,57 +63,19 @@ if (location.hash) {
 }
 //=================
 //Menu
-let btnMenu = document.querySelector(".bt-menu");
-if (btnMenu != null) {
+let iconMenu = document.querySelector(".bt-menu");
+let menu = document.querySelector(".menu");
+if (iconMenu != null) {
 	let delay = 500;
-	let menuBody = document.querySelector(".menu");
-	let menuLinks = document.querySelectorAll(".menu__link");
-	if (menuLinks.length > 0) {
-		menuLinks.forEach(menuLink => {
-			menuLink.addEventListener("click", menuClose);
-		});
-		function menuClose(e) {
-			if (btnMenu.classList.contains("_active")) {
-				body_lock(delay);
-				btnMenu.classList.remove("_active");
-				menuBody.classList.remove("_active");
-			}
-		}
-	}
-	btnMenu.addEventListener("click", function (e) {
+	iconMenu.addEventListener("click", function (e) {
 		if (unlock) {
 			body_lock(delay);
-			btnMenu.classList.toggle("_active");
-			menuBody.classList.toggle("_active");
+			iconMenu.classList.toggle("_active");
+			menu.classList.toggle("_active");
 		}
 	});
 };
 
-function menu_close() {
-	let btnMenu = document.querySelector(".bt-menu");
-	let menuBody = document.querySelector(".menu");
-	btnMenu.classList.remove("_active");
-	menuBody.classList.remove("_active");
-}
-
-// =====================Добавляет активний клас а при нажатии на соседний елемен удаляет его 
-window.onload = function () {
-	if (isMobile.any()) {
-		document.querySelectorAll('.portfolio__item').forEach(function (link, index) {
-			link.addEventListener('click', function () {
-				if (this.classList.contains('_hover')) {
-					this.classList.remove('_hover');
-				} else {
-					const activeLink = document.querySelector('.portfolio__item._hover');
-					if (activeLink) {
-						activeLink.classList.remove('_hover');
-					}
-					this.classList.add('_hover');
-				}
-			});
-		});
-	}
-}
 
 // =================
 //BodyLock
@@ -171,6 +123,7 @@ function body_lock_add(delay) {
 		}, delay);
 	}
 }
+
 //=================
 //Tabs
 let tabs = document.querySelectorAll("._tabs");

@@ -7,3 +7,4 @@
 @@include('files/pagination.js', {})
 @@include('files/forms.js', {})
 @@include('files/dynamic_adapt.js', {})
+@@include('files/popup.js', {})

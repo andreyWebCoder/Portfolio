@@ -43,6 +43,19 @@
 		background: color-mix(in srgb, var(--wc-text-color), transparent 100%);
 	}
 }
+.bt-light {
+	color: var(--wc-black);
+	background-color: var(--wc-gray-100);
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--wc-gray-200);
+		}
+	}
+	&:active {
+		color: var(--wc-gray-800);
+		background-color: var(--wc-gray);
+	}
+}
 .bt-sm {
 	gap: 6px;
 	padding: 10px 18px;
@@ -106,7 +119,7 @@
 		height: 40px;
 		cursor: pointer;
 		z-index: 5;
-		background-color: inherit;
+		background-color: transparent;
 		span {
 			transition: all 0.3s ease 0s;
 			top: 50%;

@@ -12,13 +12,15 @@ body {
 	padding-top: $paddingTop + $headerHeight;
 	&._lock {
 		overflow: hidden;
+		touch-action: none;
+		-ms-touch-action: none;
 	}
 }
 
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
+	// overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	position: relative;

@@ -23,7 +23,7 @@
 	&__link {
 		color: #b2b3b3;
 		display: block;
-		transition: all 0.3s ease 0s;
+		transition: color 0.3s ease 0s;
 		@media (any-hover: hover) {
 			&:hover {
 				color: #fff;

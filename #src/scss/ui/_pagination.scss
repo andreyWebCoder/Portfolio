@@ -40,8 +40,8 @@
 
 		&:disabled {
 			color: var(--wc-gray-600);
-			background-color: var(--wc-gray);
-			border-color: var(--wc-gray);
+			background-color: color-mix(in srgb, var(--wc-gray-600), transparent 50%);
+			border-color: transparent;
 			pointer-events: none;
 		}
 	}

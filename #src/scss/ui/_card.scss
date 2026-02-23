@@ -114,11 +114,12 @@
 		transition: all 0.3s ease 0s;
 		@media (max-width: ($md1 + px)) {
 			font-size: 14px;
+			text-align: left;
+			align-self: flex-start;
+			margin-left: 8px;
 		}
 		@media (max-width: #{$md4 + px}) {
 			font-size: 13px;
-		}
-		@media (max-width: 620px) {
 			line-height: 160%;
 		}
 	}
@@ -144,7 +145,6 @@
 			line-height: 110%;
 			flex: 0 0 auto;
 			text-align: left;
-			// --clamp-line: 4;
 		}
 		@media (max-width: ($md4 + px)) {
 			height: auto;
@@ -152,9 +152,6 @@
 			overflow: visible;
 			--clamp-line: auto;
 		}
-		// @media (max-width: 620px) {
-		// 	display: none;
-		// }
 	}
 
 	// .card__label-btn

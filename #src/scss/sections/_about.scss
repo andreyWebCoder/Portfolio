@@ -1,0 +1,150 @@
+@use "vars" as *;
+//=========================About section====================
+.about {
+	position: relative;
+	overflow: hidden;
+	padding: 60px 0px 60px 0px;
+	@media (max-width: ($md3 + px)) {
+		padding: 40px 0px 40px 0px;
+	}
+	// .about__container
+
+	&__container {
+		position: relative;
+		z-index: 1;
+	}
+
+	// .about__title
+
+	&__title {
+	}
+
+	// .about__label
+
+	&__label {
+		text-align: center;
+		max-width: 540px;
+		margin: 0 auto;
+		line-height: 140%;
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		color: var(--wc-text-color);
+		@media (max-width: #{($md3 + px)}) {
+			font-size: 14px;
+		}
+	}
+
+	// .about__grid
+
+	&__grid {
+		margin-top: 36px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+		@media (max-width: ($md2 + px)) {
+			gap: 16px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: ($md4 + px)) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	// .about__paralax
+
+	&__paralax {
+	}
+}
+
+.paralax {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	@media (max-width: $md1+px) {
+		display: none;
+	}
+
+	// .paralax__item
+
+	&__item {
+		position: absolute;
+		width: 100%;
+		height: 200%;
+		left: 0;
+		top: 0;
+	}
+	&__img {
+		height: 50px;
+		width: 50px;
+		position: absolute;
+
+		&_position-1 {
+			left: 25%;
+			top: 2%;
+		}
+		&_position-2 {
+			left: 9%;
+			top: 9%;
+		}
+		&_position-3 {
+			left: 88%;
+			top: 13%;
+		}
+		&_position-4 {
+			left: 5%;
+			top: 30%;
+		}
+		&_position-5 {
+			left: 5%;
+			top: 15%;
+		}
+		&_position-6 {
+			left: 86%;
+			top: 35%;
+		}
+		&_position-7 {
+			left: 68%;
+			top: 90%;
+		}
+		&_position-8 {
+			left: 76%;
+			top: 85%;
+		}
+		&_position-9 {
+			left: 2%;
+			top: 63%;
+		}
+		&_position-10 {
+			left: 90%;
+			top: 51%;
+		}
+		&_position-11 {
+			left: 4%;
+			top: 55%;
+		}
+		&_position-12 {
+			left: 50%;
+			top: 88%;
+		}
+		&_position-13 {
+			left: 36%;
+			top: 87%;
+		}
+		&_position-14 {
+			left: 8%;
+			top: 42%;
+		}
+		&_position-15 {
+			left: 82%;
+			top: 7%;
+		}
+		&_position-16 {
+			left: 90%;
+			top: 25%;
+		}
+	}
+}

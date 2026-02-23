@@ -1,4 +1,7 @@
 @use "vars" as *;
+// * {
+// 	border: 1px solid red;
+// }
 .portfolio {
 	padding: 40px 0px;
 	@media (max-width: ($md3 + px)) {
@@ -34,7 +37,7 @@
 		@media (max-width: ($md2 + px)) {
 			column-count: 2;
 		}
-		@media (max-width: 620px) {
+		@media (max-width: ($md4 + px)) {
 			column-count: 1;
 		}
 	}

@@ -67,7 +67,6 @@
 		}
 	}
 }
-
 //=========================Hero section====================
 //=========================Портфолио====================
 
@@ -76,6 +75,7 @@
 .about-page {
 	position: relative;
 	overflow: hidden;
+
 	// .about-page__container
 
 	&__container {
@@ -426,7 +426,7 @@
 			grid-template-columns: 100%;
 		}
 		@media (max-width: $md4+px) {
-			grid-template-columns: auto auto auto auto;
+			grid-template-columns: auto auto;
 			grid-template-rows: 1fr 1fr;
 			row-gap: 10px;
 			column-gap: 10px;

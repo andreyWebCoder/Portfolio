@@ -90,5 +90,8 @@
 		justify-content: center;
 		gap: 48px 12px;
 		flex-wrap: wrap;
+		@media (max-width: ($md4 + px)) {
+			margin-top: 50px;
+		}
 	}
 }

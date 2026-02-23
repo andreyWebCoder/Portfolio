@@ -116,7 +116,6 @@
   --wc-gray-100: #dbdbdb;
   --wc-gray-200: #c5c5c5;
   --wc-gray-600: #828282;
-  --wc-gray-700: #525252;
   --wc-gray-800: #272727;
   --wc-gray-900: #181818;
   --wc-primary: #19bd9a;
@@ -789,7 +788,6 @@ textarea.input {
   transform: scale(0);
   backface-visibility: hidden;
   will-change: transform, opacity;
-  cursor: pointer;
 }
 @media (any-hover: hover) {
   .card:hover .card__hover {
@@ -869,15 +867,13 @@ textarea.input {
 }
 @media (max-width: 1182px) {
   .card__hover {
+    position: static;
     padding: 8px;
     gap: 18px;
-  }
-}
-@media (max-width: 767.98px) {
-  .card__hover {
     visibility: visible;
     opacity: 1;
     transform: scale(1);
+    height: auto;
   }
 }
 .card__hover .bt {
@@ -914,16 +910,23 @@ textarea.input {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--clamp-line);
   white-space: normal;
-  height: auto;
+  height: 76px;
   display: -webkit-box;
-  padding: 0 4px;
 }
 @media (max-width: 1182px) {
   .card__text {
     font-size: 14px;
     line-height: 110%;
     flex: 0 0 auto;
-    --clamp-line: 4;
+    text-align: left;
+  }
+}
+@media (max-width: 479.98px) {
+  .card__text {
+    height: auto;
+    display: block;
+    overflow: visible;
+    --clamp-line: auto;
   }
 }
 @keyframes fadeInUp {
@@ -971,11 +974,8 @@ textarea.input {
   background-color: var(--wc-gray-700);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
   align-items: flex-start;
-}
-.card-prev__title {
-  font-weight: 500;
 }
 @media (max-width: 479.98px) {
   .card-prev__title {
@@ -989,13 +989,14 @@ textarea.input {
 .title-card {
   letter-spacing: 0.2em;
   color: var(--wc-primary);
+  font-weight: 500;
 }
 .title-card span {
   position: relative;
 }
 .title-card span::before {
   content: "";
-  height: 1px;
+  height: 2px;
   background-color: var(--wc-primary);
   width: 23px;
   position: absolute;
@@ -1007,6 +1008,8 @@ textarea.input {
   visibility: visible;
   opacity: 1;
   transform: scale(1);
+  position: static;
+  height: auto;
 }
 
 .pagination {
@@ -1570,6 +1573,11 @@ body.ie ._ibg img {
   gap: 48px 12px;
   flex-wrap: wrap;
 }
+@media (max-width: 479.98px) {
+  .hero__actions {
+    margin-top: 50px;
+  }
+}
 
 .portfolio {
   padding: 40px 0px;
@@ -1598,7 +1606,7 @@ body.ie ._ibg img {
     column-count: 2;
   }
 }
-@media (max-width: 620px) {
+@media (max-width: 479.98px) {
   .portfolio__content {
     column-count: 1;
   }
@@ -2047,7 +2055,7 @@ body.ie ._ibg img {
 }
 @media (max-width: 479.98px) {
   .contacts-page__links {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
     grid-template-rows: 1fr 1fr;
     row-gap: 10px;
     column-gap: 10px;

@@ -83,18 +83,19 @@
 										<div class="card__img _ibg">
 											<img src="{{ item.img.src }}" alt="{{ item.img.alt }}" >
 										</div>
-										<a 
-										href="{{ item.link }}" 
-										class="card__hover{{' ' + '_popup-link' if item.popup }}" 
-										{% if not item.popup %}
-											target="_blank"
-										{% endif %}>
+										<div class="card__hover">
 											<div class="card__label title-card">
 												<span>{{ item.label }}</span>
 											</div>
 											<p class="card__text">{{ item.text }}</p>
-											<span class="bt bt-sm _ic-top-right">Посмотреть</span>
-										</a>
+											<a href="{{ item.link }}"  
+												class="bt bt-sm _ic-top-right{{' ' + '_popup-link' if item.popup }}"
+												{% if not item.popup %}
+												target="_blank"
+												{% endif %}>
+												Посмотреть
+											</a>
+										</div>
 									</div>
 								</div>
 							{% endfor %}

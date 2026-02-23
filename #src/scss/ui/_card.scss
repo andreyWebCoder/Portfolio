@@ -5,7 +5,6 @@
 	transform: scale(0);
 	backface-visibility: hidden;
 	will-change: transform, opacity;
-	cursor: pointer;
 	@media (any-hover: hover) {
 		&:hover {
 			.card__hover {
@@ -95,13 +94,13 @@
 		opacity: 0;
 		transform: scale(0);
 		@media (max-width: ($md1 + px)) {
+			position: static;
 			padding: 8px;
 			gap: 18px;
-		}
-		@media (max-width: ($md3 + px)) {
 			visibility: visible;
 			opacity: 1;
 			transform: scale(1);
+			height: auto;
 		}
 		.bt {
 			margin-top: auto;
@@ -138,14 +137,20 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: var(--clamp-line);
 		white-space: normal;
-		height: auto;
+		height: 76px;
 		display: -webkit-box;
-		padding: 0 4px;
 		@media (max-width: #{$md1+px}) {
 			font-size: 14px;
 			line-height: 110%;
 			flex: 0 0 auto;
-			--clamp-line: 4;
+			text-align: left;
+			// --clamp-line: 4;
+		}
+		@media (max-width: ($md4 + px)) {
+			height: auto;
+			display: block;
+			overflow: visible;
+			--clamp-line: auto;
 		}
 		// @media (max-width: 620px) {
 		// 	display: none;
@@ -205,14 +210,13 @@
 		background-color: var(--wc-gray-700);
 		display: flex;
 		flex-direction: column;
-		gap: 18px;
+		gap: 22px;
 		align-items: flex-start;
 	}
 
 	// .card-prev__title
 
 	&__title {
-		font-weight: 500;
 		@media (max-width: ($md4 + px)) {
 			font-size: 14px;
 		}
@@ -224,11 +228,12 @@
 .title-card {
 	letter-spacing: 0.2em;
 	color: var(--wc-primary);
+	font-weight: 500;
 	span {
 		position: relative;
 		&::before {
 			content: "";
-			height: 1px;
+			height: 2px;
 			background-color: var(--wc-primary);
 			width: 23px;
 			position: absolute;
@@ -242,5 +247,7 @@
 		visibility: visible;
 		opacity: 1;
 		transform: scale(1);
+		position: static;
+		height: auto;
 	}
 }

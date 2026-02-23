@@ -1333,6 +1333,14 @@ textarea.input {
   letter-spacing: 2px;
   color: var(--wc-text-color);
 }
+.title::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--wc-primary);
+  border-radius: 50%;
+  display: inline-block;
+}
 .title_white {
   color: rgba(255, 255, 255, 0.877);
 }
@@ -1341,20 +1349,37 @@ textarea.input {
     font-size: 22px;
     margin: 0px 0px 10px 0px;
   }
+  .title::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+  }
 }
 
 h1.title {
   font-size: 52px;
   line-height: 130%;
 }
+h1.title::after {
+  height: 14px;
+  width: 14px;
+}
 @media (max-width: 991.98px) {
   h1.title {
     font-size: 32px;
+  }
+  h1.title::after {
+    height: 10px;
+    width: 10px;
   }
 }
 @media (max-width: 767.98px) {
   h1.title {
     font-size: 24px;
+  }
+  h1.title::after {
+    height: 8px;
+    width: 8px;
   }
 }
 

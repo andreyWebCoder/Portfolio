@@ -1335,8 +1335,7 @@ textarea.input {
 }
 .title::after {
   content: "";
-  width: 10px;
-  height: 10px;
+  padding: 5px;
   background-color: var(--wc-primary);
   border-radius: 50%;
   display: inline-block;
@@ -1350,9 +1349,7 @@ textarea.input {
     margin: 0px 0px 10px 0px;
   }
   .title::after {
-    content: "";
-    width: 6px;
-    height: 6px;
+    padding: 3px;
   }
 }
 
@@ -1361,16 +1358,14 @@ h1.title {
   line-height: 130%;
 }
 h1.title::after {
-  height: 14px;
-  width: 14px;
+  padding: 7px;
 }
 @media (max-width: 991.98px) {
   h1.title {
     font-size: 32px;
   }
   h1.title::after {
-    height: 10px;
-    width: 10px;
+    padding: 5px;
   }
 }
 @media (max-width: 767.98px) {
@@ -1378,8 +1373,7 @@ h1.title::after {
     font-size: 24px;
   }
   h1.title::after {
-    height: 8px;
-    width: 8px;
+    padding: 4px;
   }
 }
 
@@ -1866,6 +1860,11 @@ body.ie ._ibg img {
   height: 50px;
   width: 50px;
   position: absolute;
+}
+@media (max-width: 1340px) {
+  .paralax__img {
+    opacity: 0.65;
+  }
 }
 .paralax__img_position-1 {
   left: 25%;

@@ -9,8 +9,7 @@
 
 	&::after {
 		content: "";
-		width: 10px;
-		height: 10px;
+		padding: 5px;
 		background-color: var(--wc-primary);
 		border-radius: 50%;
 		display: inline-block;
@@ -22,9 +21,7 @@
 		font-size: 22px;
 		margin: 0px 0px 10px 0px;
 		&::after {
-			content: "";
-			width: 6px;
-			height: 6px;
+			padding: 3px;
 		}
 	}
 }
@@ -33,21 +30,18 @@ h1 {
 		font-size: 52px;
 		line-height: 130%;
 		&::after {
-			height: 14px;
-			width: 14px;
+			padding: 7px;
 		}
 		@media (max-width: ($md2 + px)) {
 			font-size: 32px;
 			&::after {
-				height: 10px;
-				width: 10px;
+				padding: 5px;
 			}
 		}
 		@media (max-width: ($md3 + px)) {
 			font-size: 24px;
 			&::after {
-				height: 8px;
-				width: 8px;
+				padding: 4px;
 			}
 		}
 	}

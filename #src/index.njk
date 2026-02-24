@@ -104,6 +104,7 @@
 
 					</div>
 				</section>
+				<!-- ===================about============== -->
 				<section id="about-page" class="page__about about">
 					<div class="about__container _container">
 						<h2 class="about__title title" data-key="titleAbout">Обо мне</h2>
@@ -165,61 +166,22 @@
 						</div>
 					</div>
 				</section>
-				<section id="contacts-page" class="page__contacts contacts-page">
-					<div class="contacts-page__container _container">
-						<h2 class="contacts-page__title title title_white">Контакты</h2>
-						<div class="contacts-page__links">
-							<div class="contacts-page__item">
-								<a href="tel:+380967591329" class="contacts-page__link">
-									<span class="contacts-page__icon _ic-call"></span>
-									<span class="contacts-page__text">
-										<span>Позвонить:</span> +38&nbsp;(096)&nbsp;75-&nbsp;91-&nbsp;329
-								</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="mailto:foresteraws@gmail.com" class="contacts-page__link">
-									<span class="contacts-page__icon _ic-mail"></span>
-									<span class="contacts-page__text">
-										<span>Написать: </span>foresteraws@gmail.com</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="https://www.facebook.com/profile.php?id=100004303727534" class="contacts-page__link" target="_blank">
-									<img src="img/icons/facebook.svg" alt="icon facebook">
-									<span class="contacts-page__text">Facebook</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="https://t.me/Frylanser" class="contacts-page__link" target="_blank">
-									<img src="img/icons/telegram.svg" alt="icon telegram">
-									<span class="contacts-page__text">Telegram</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href=" https://wa.me/+380967591329" class="contacts-page__link" target="_blank">
-									<img src="img/icons/whatsapp.svg" alt="icon whatsapp">
-									<span class="contacts-page__text">WhatsApp</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="https://www.instagram.com/andrey_shupyk/?hl=ru" class="contacts-page__link" target="_blank">
-									<img src="img/icons/instagram.svg" alt="icon instagram">
-									<span class="contacts-page__text">Instagram</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="https://github.com/Frilanser-of-UA?tab=repositories" class="contacts-page__link" target="_blank">
-									<img src="img/icons/git-hub.svg" alt="icon git-hub">
-									<span class="contacts-page__text">GitHub</span>
-								</a>
-							</div>
-							<div class="contacts-page__item">
-								<a href="Skype:s_andrey_w?chat" class="contacts-page__link" target="_blank">
-									<img src="img/icons/scape.svg" alt="icon Skype">
-									<span class="contacts-page__text">Skype</span>
-								</a>
-							</div>
+				<!-- ===================contacts============== -->
+				<section id="contacts-page" class="page__contacts contacts">
+					<div class="contacts__container _container">
+						<h2 class="contacts__title title title_white">Контакты</h2>
+						<div class="contacts__links">
+							{% for item in data.contactsItems %}
+								<div class="contacts__item">
+									<a href="{{item.href}}" class="contacts__link" target="_blank">
+										<i class="contacts__icon{{' ' + item.icon if item.icon}}"></i>
+										<span class="contacts__text">
+											{{item.text}}
+										</span>
+										<i class="contacts__arrow _ic-top-right"></i>
+									</a>
+								</div>
+							{% endfor %}
 						</div>
 					</div>
 

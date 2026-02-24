@@ -29,7 +29,7 @@
 				color: #fff;
 			}
 		}
-		@media (max-width: $md4+px) {
+		@media (max-width: ($md4 + px)) {
 			font-size: 14px;
 		}
 	}

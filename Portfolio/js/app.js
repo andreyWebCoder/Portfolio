@@ -288,7 +288,7 @@ const translations = {
 		headerNav1: "Проекты",
 		headerNav2: "Обо мне",
 		headerNav3: "Контакты",
-		headerNav3: "Форма",
+		headerNav4: "Написать",
 		// filters nav links
 		filtersNav1: "Все",
 		filtersNav2: "Лендинги",
@@ -307,7 +307,7 @@ const translations = {
 		headerNav1: "Projects",
 		headerNav2: "About me",
 		headerNav3: "Contacts",
-		headerNav4: "Form",
+		headerNav4: "Feedback",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Landing pages",
@@ -326,7 +326,7 @@ const translations = {
 		headerNav1: "Проекти",
 		headerNav2: "Про мене",
 		headerNav3: "Контакти",
-		headerNav4: "Форма",
+		headerNav4: "Написати",
 		// filters nav links
 		filtersNav1: "All",
 		filtersNav2: "Лендінги",

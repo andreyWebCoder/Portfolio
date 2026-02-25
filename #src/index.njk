@@ -92,7 +92,9 @@
 												class="bt bt-sm _ic-top-right{{' ' + '_popup-link' if item.popup }}"
 												{% if not item.popup %}
 												target="_blank"
-												{% endif %}>
+												{% endif %}
+												data-key="buttonSee"
+												>
 												Посмотреть
 											</a>
 										</div>
@@ -113,9 +115,12 @@
 							{% for item in data.aboutItems %}
 								<div class="item-about{{' item-about--large' if  item.lg}}">
 									<div class="item-about__title title-card">
-										<span>{{item.title}}</span>
+										<span 
+										{% if item.keyTitle %}
+											data-key="{{item.keyTitle}}"
+										{% endif %}>{{item.title}}</span>
 									</div>
-									<h3 class="item-about__text">{{item.text}}</h3>
+									<h3 class="item-about__text" data-key="{{item.key}}">{{item.text}}</h3>
 									<div class="item-about__icons">
 										{% for ic in item.images %}
 											<div class="item-about__img">
@@ -169,8 +174,8 @@
 				<!-- ===================contacts============== -->
 				<section id="contacts-page" class="page__contacts contacts">
 					<div class="contacts__container _container">
-						<h2 class="contacts__title title title_white">Контакты</h2>
-						<p class="contacts__label">Свяжитесь со мной или подпишитесь на мои страницы в социальных сетях.</p>
+						<h2 class="contacts__title title title_white" data-key="titleContacts">Контакты</h2>
+						<p class="contacts__label" data-key="labelContacts">Свяжитесь со мной или подпишитесь на мои страницы в социальных сетях.</p>
 						<div class="contacts__links">
 							{% for item in data.contactsItems %}
 								<div class="contacts__item">

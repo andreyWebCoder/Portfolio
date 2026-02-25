@@ -502,8 +502,7 @@ body._lock {
 }
 @media (max-width: 767.98px) {
   .select__option {
-    padding: 12px 8px;
-    font-size: 20px;
+    padding: 14px 10px;
   }
 }
 .select._active {

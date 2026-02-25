@@ -854,6 +854,7 @@ textarea.input {
   }
 }
 .card__label {
+  letter-spacing: 0.45em !important;
   display: inline-block;
   transition: all 0.3s ease 0s;
 }

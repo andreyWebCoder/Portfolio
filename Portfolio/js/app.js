@@ -517,7 +517,7 @@ document.querySelector('.menu__list').addEventListener('click', (e) => {
 	}
 });
 
-const goTop = document.querySelector(".page__arrow");
+const goTop = document.querySelector(".bt-top");
 const screenHeight = document.documentElement.clientHeight;
 
 window.addEventListener("scroll", () => {

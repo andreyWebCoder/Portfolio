@@ -138,7 +138,7 @@
 		white-space: normal;
 		height: 76px;
 		display: -webkit-box;
-		@media (max-width: #{$md1+px}) {
+		@media (max-width: #{($md1 + px)}) {
 			font-size: 14px;
 			line-height: 110%;
 			flex: 0 0 auto;

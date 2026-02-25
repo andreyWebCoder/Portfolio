@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="ru">
 	
@@ -576,6 +577,7 @@
 				<section id="contacts-page" class="page__contacts contacts">
 					<div class="contacts__container _container">
 						<h2 class="contacts__title title title_white">Контакты</h2>
+						<p class="contacts__label">Свяжитесь со мной или подпишитесь на мои страницы в социальных сетях.</p>
 						<div class="contacts__links">
 							
 								<div class="contacts__item">
@@ -620,37 +622,117 @@
 							
 						</div>
 					</div>
-
 				</section>
-				<section id="form-page" class="page__form ">
+				<!-- =================== form section =================== -->
+				<section id="form-page" class="page__form form-page">
 					<div class="form-page__container _container">
 						<h2 class="form-page__title title" data-key="titleForm">Send mail</h2>
 						<form id="form" class="form" action="https://api.web3forms.com/submit" method="POST">
+							
+								<div class="form__line">
+									
+	<label for="inputFirstName" class="form-label" data-key="labelName" ></label>
+	
+		<input 
+		id="inputFirstName" 
+		class="input" 
+		type="text" 
+		name="first name"
+		placeholder="" 
+		
+			data-key="placeholderName"
+		
+		
+			required
+		
+		>
+	
 
-							<label for="inputName">
-								<span>Name</span>
-								<input id="inputName" class="input" type="text" name="name" required>
-							</label>
-							<label for="inputCity">
-								<span>City</span>
-								<input id="inputCity" class="input" type="text" name="city" required>
-							</label>
-							<label for="inputNumber">
-								<span>Number</span>
-								<input id="inputNumber" class="input" type="number" name="number" required>
-							</label>
-							<label for="inputEmail">
-								<span>Email</span>
-								<input id="inputEmail" class="input" type="email" name="email" required>
-							</label>
-							<label for="textarea">
-								<span>Message</span>
-								<textarea id="textarea" class="input" name="message" required></textarea>
-							</label>
-							<button class=" bt-theme" type="submit">Submit</button>
+								</div>
+							
+								<div class="form__line">
+									
+	<label for="inputLastName" class="form-label" data-key="labelLastName" ></label>
+	
+		<input 
+		id="inputLastName" 
+		class="input" 
+		type="text" 
+		name="last name"
+		placeholder="" 
+		
+			data-key="placeholderLastName"
+		
+		
+		>
+	
+
+								</div>
+							
+								<div class="form__line">
+									
+	<label for="inputEmail" class="form-label" data-key="labelEmail" ></label>
+	
+		<input 
+		id="inputEmail" 
+		class="input" 
+		type="email" 
+		name="email"
+		placeholder="" 
+		
+			data-key="placeholderEmail"
+		
+		
+			required
+		
+		>
+	
+
+								</div>
+							
+								<div class="form__line">
+									
+	<label for="inpuTitle" class="form-label" data-key="labelTitle" ></label>
+	
+		<input 
+		id="inpuTitle" 
+		class="input" 
+		type="text" 
+		name="title"
+		placeholder="" 
+		
+			data-key="placeholderTitle"
+		
+		
+		>
+	
+
+								</div>
+							
+								<div class="form__line">
+									
+	<label for="textarea" class="form-label" data-key="labelMess" ></label>
+	
+		<textarea 
+		id="textarea" 
+		class="input" 
+		rows="5" 
+		name="message"
+		placeholder="" 
+		
+			data-key="placeholderMessage"
+		
+		
+			required
+		
+		></textarea>
+	
+
+								</div>
+							
+							<button class="bt bt-sm" type="submit"  data-key="send">Submit</button>
 						</form>
 					</div>
-
 				</section>
 			</main>
 			<footer class="footer">
@@ -754,7 +836,18 @@
 				
 				<button type="button" class="popup__close _ic-close"></button>
 			</div>
+		</div>
+	</div>
+</div>
 
+<div class="popup popup_success">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="form-success">
+				<i class="form-success__ic _ic-check-fill"></i>
+				<h3 class="form-success__title" data-key="successTitle"></h3>
+				<p class="form-success__text" data-key="successText"></p>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,32 @@
+{% macro input(props) %}
+	<label for="{{props.forId}}" class="form-label" data-key="{{props.keyLabel}}" ></label>
+	{% if not props.textarea %}
+		<input 
+		id="{{props.forId}}" 
+		class="input" 
+		type="{{props.type}}" 
+		name="{{props.name}}"
+		placeholder="" 
+		{% if props.keyInput %}
+			data-key="{{props.keyInput}}"
+		{% endif %}
+		{% if props.required %}
+			required
+		{% endif %}
+		>
+	{% else %}
+		<textarea 
+		id="{{props.forId}}" 
+		class="input" 
+		rows="{{props.rows}}" 
+		name="{{props.name}}"
+		placeholder="" 
+		{% if props.keyInput %}
+			data-key="{{props.keyInput}}"
+		{% endif %}
+		{% if props.required %}
+			required
+		{% endif %}
+		></textarea>
+	{% endif %}
+{% endmacro %}

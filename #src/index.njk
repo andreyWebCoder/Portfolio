@@ -1,5 +1,6 @@
 {% import "html/data/_indexData.njk" as data %}
 {% from "html/includes/_badge.njk" import badge%}
+{% from "html/includes/_input.njk" import input %}
 <!DOCTYPE html>
 <html lang="ru">
 	{% set title = "Главная страница" %}
@@ -170,6 +171,7 @@
 				<section id="contacts-page" class="page__contacts contacts">
 					<div class="contacts__container _container">
 						<h2 class="contacts__title title title_white">Контакты</h2>
+						<p class="contacts__label">Свяжитесь со мной или подпишитесь на мои страницы в социальных сетях.</p>
 						<div class="contacts__links">
 							{% for item in data.contactsItems %}
 								<div class="contacts__item">
@@ -184,37 +186,20 @@
 							{% endfor %}
 						</div>
 					</div>
-
 				</section>
-				<section id="form-page" class="page__form ">
+				<!-- =================== form section =================== -->
+				<section id="form-page" class="page__form form-page">
 					<div class="form-page__container _container">
 						<h2 class="form-page__title title" data-key="titleForm">Send mail</h2>
 						<form id="form" class="form" action="https://api.web3forms.com/submit" method="POST">
-
-							<label for="inputName">
-								<span>Name</span>
-								<input id="inputName" class="input" type="text" name="name" required>
-							</label>
-							<label for="inputCity">
-								<span>City</span>
-								<input id="inputCity" class="input" type="text" name="city" required>
-							</label>
-							<label for="inputNumber">
-								<span>Number</span>
-								<input id="inputNumber" class="input" type="number" name="number" required>
-							</label>
-							<label for="inputEmail">
-								<span>Email</span>
-								<input id="inputEmail" class="input" type="email" name="email" required>
-							</label>
-							<label for="textarea">
-								<span>Message</span>
-								<textarea id="textarea" class="input" name="message" required></textarea>
-							</label>
-							<button class=" bt-theme" type="submit">Submit</button>
+							{% for item in data.inputsData %}
+								<div class="form__line">
+									{{input(item)}}
+								</div>
+							{% endfor %}
+							<button class="bt bt-sm" type="submit"  data-key="send">Submit</button>
 						</form>
 					</div>
-
 				</section>
 			</main>
 			{% include "html/includes/_footer.njk" %}

@@ -36,6 +36,25 @@
 	&__title {
 	}
 
+	// .contacts__label
+
+	&__label {
+		color: var(--wc-gray-100);
+		font-size: 18px;
+		text-align: center;
+		line-height: 125%;
+		max-width: 680px;
+		margin: 0 auto;
+		margin-bottom: 4px;
+		@media (max-width: ($md3 + px)) {
+			font-size: 16px;
+			margin-bottom: 0;
+		}
+		@media (max-width: ($md4 + px)) {
+			font-size: 14px;
+		}
+	}
+
 	// .contacts__links
 
 	&__links {

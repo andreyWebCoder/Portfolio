@@ -1,0 +1,20 @@
+@use "vars" as *;
+.form-page {
+	padding: 80px 20px;
+	@media (max-width: ($md3 + px)) {
+		padding: 60px 10px;
+	}
+	@media (max-width: ($md4 + px)) {
+		padding: 40px 10px;
+	}
+
+	// .form-page__container
+
+	&__container {
+	}
+
+	// .form-page__title
+
+	&__title {
+	}
+}

@@ -280,64 +280,114 @@ function _is_hidden(el) {
 	return (el.offsetParent === null)
 }
 const translations = {
-	ru: {
-		// titles
-		titleWork: "Мои проекты",
-		titleAbout: "Обо мне",
-		// header nav links
-		headerNav1: "Проекты",
-		headerNav2: "Обо мне",
-		headerNav3: "Контакты",
-		headerNav4: "Написать",
-		// filters nav links
-		filtersNav1: "Все",
-		filtersNav2: "Лендинги",
-		filtersNav3: "Многостраничные сайты",
-		filtersNav4: "Анимации Css, Js",
-		filtersNav5: "jQuery",
-		// pagination
-		paginPrev: "Предыдущая",
-		paginNext: "Следующая",
-	},
-	en: {
-		// titles
-		titleWork: "My projects",
-		titleAbout: "About me",
-		// header nav links
-		headerNav1: "Projects",
-		headerNav2: "About me",
-		headerNav3: "Contacts",
-		headerNav4: "Feedback",
-		// filters nav links
-		filtersNav1: "All",
-		filtersNav2: "Landing pages",
-		filtersNav3: "Multi-page sites",
-		filtersNav4: "CSS, JS animations",
-		filtersNav5: "jQuery",
-		// pagination
-		paginPrev: "Previous",
-		paginNext: "Next",
-	},
-	ua: {
-		// titles
-		titleWork: "Мої проекти",
-		titleAbout: "Про мене",
-		// header nav links
-		headerNav1: "Проекти",
-		headerNav2: "Про мене",
-		headerNav3: "Контакти",
-		headerNav4: "Написати",
-		// filters nav links
-		filtersNav1: "All",
-		filtersNav2: "Лендінги",
-		filtersNav3: "Багатосторінкові сайти",
-		filtersNav4: "CSS, JS анімації",
-		filtersNav5: "jQuery",
-		// pagination	
-		paginPrev: "Попередня",
-		paginNext: "Наступна",
-	}
+	// titles
+	titleWork: { ru: "Мои проекты", en: "My projects", ua: "Мої проекти" },
+	titleAbout: { ru: "Обо мне", en: "About me", ua: "Про мене" },
+	titleForm: { ru: "Написать письмо", en: "Send mail", ua: "Написати листа" },
+
+	// header nav links
+	headerNav1: { ru: "Проекты", en: "Projects", ua: "Проекти" },
+	headerNav2: { ru: "Обо мне", en: "About me", ua: "Про мене" },
+	headerNav3: { ru: "Контакты", en: "Contacts", ua: "Контакти" },
+	headerNav4: { ru: "Написать", en: "Feedback", ua: "Написати" },
+
+	// filters nav links
+	filtersNav1: { ru: "Все", en: "All", ua: "Все" },
+	filtersNav2: { ru: "Лендинги", en: "Landing pages", ua: "Лендінги" },
+	filtersNav3: { ru: "Многостраничные сайты", en: "Multi page sites", ua: "Багатосторінкові сайти" },
+	filtersNav4: { ru: "Анимации Css, Js", en: "Animations CSS, JS ", ua: "Анімації CSS, JS " },
+	filtersNav5: { ru: "jQuery", en: "jQuery", ua: "jQuery" },
+
+	// pagination
+	paginPrev: { ru: "Предыдущая", en: "Previous", ua: "Попередня" },
+	paginNext: { ru: "Следующая", en: "Next", ua: "Наступна" },
+
+	// form labels
+	labelName: { ru: "Имя", en: "Name", ua: "Імя" },
+	labelLastName: { ru: "Фамилия", en: "Last name", ua: "Призвіще" },
+	labelEmail: { ru: "Электронная почта", en: "Email", ua: "Електронна пошта" },
+	labelTitle: { ru: "Заглавие", en: "Title", ua: "Заголовок" },
+	labelMess: { ru: "Сообщение", en: "Мessage", ua: "Повідомлення" },
+
+	// form placeholders
+	placeholderName: { ru: "Введите имя", en: "Enter name", ua: "Введіть імя" },
+	placeholderLastName: { ru: "Введите фамилию", en: "Enter last name", ua: "Введіть прізвище" },
+	placeholderEmail: { ru: "Введите электронную почту", en: "Enter email address", ua: "Введіть електронну пошту" },
+	placeholderTitle: { ru: "Введите заглавие", en: "Enter title address", ua: "Введіть заголовок" },
+	placeholderMessage: { ru: "Введите сообщение", en: "Enter message", ua: "Введіть повідомлення" },
+
+	// form errors & buttons
+	errorRequired: { ru: "Заполните поле", en: "Field is required", ua: "Заповніть поле" },
+	errorEmail: { ru: "Введите корректный email", en: "Enter a valid email", ua: "Введіть коректний email" },
+	errorMinLength: { ru: "Минимум 10 символов", en: "Minimum 10 characters", ua: "Мінімум 10 символів" },
+	sending: { ru: "Отправка...", en: "Sending...", ua: "Надсилання..." },
+	send: { ru: "Отправить", en: "Send", ua: "Надіслати" },
+
+	// form success
+	successTitle: { ru: "Спасибо!", en: "Thank you!", ua: "Дякуємо!" },
+	successText: { ru: "Ваше сообщение успешно отправлено. Я с вами свяжусь в течении 24 часов.", en: "Your message has been sent successfully. I will contact you within 24 hours.", ua: "Ваше повідомлення успішно надіслано. Я з вами звяжусь на протязі 24 годин." }
 };
+
+
+// Change language
+const select = document.getElementById('language-select');
+const elements = document.querySelectorAll('[data-key]');
+
+function applyLanguage() {
+	// Получаем язык из хеша, по умолчанию 'ru'
+	let lang = window.location.hash.replace('#', '').toLowerCase() || 'en';
+
+	// Проверка: существует ли выбранный язык в нашей базе (проверяем по любому ключу, например 'send')
+	if (!translations.send[lang]) {
+		lang = 'en';
+		window.location.hash = lang;
+		return;
+	}
+
+	// Переводим все элементы с атрибутом data-key
+	document.querySelectorAll('[data-key]').forEach(el => {
+		const key = el.getAttribute('data-key');
+
+		if (translations[key] && translations[key][lang]) {
+			const translatedText = translations[key][lang];
+
+			// Если это поле ввода, меняем placeholder
+			if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+				el.placeholder = translatedText;
+			} else {
+				// Для остальных элементов меняем текстовый контент
+				el.textContent = translatedText;
+			}
+		}
+	});
+
+	// Синхронизируем селект и кастомные элементы управления (если есть)
+	const realSelect = document.querySelector('#language-select');
+	if (realSelect) {
+		realSelect.value = lang;
+		// Если используется кастомный селект (из вашего кода)
+		if (typeof select_item === 'function') {
+			select_item(realSelect);
+		}
+	}
+
+	// ВАЖНО: Пересоздаем валидацию с текстами на новом языке
+	initValidation(lang);
+}
+
+// 3. Слушатели событий
+window.addEventListener('hashchange', applyLanguage);
+
+document.addEventListener('DOMContentLoaded', () => {
+	applyLanguage(); // Запуск при загрузке страницы
+
+	const langSelect = document.querySelector('#language-select');
+	if (langSelect) {
+		langSelect.addEventListener('change', (e) => {
+			window.location.hash = e.target.value;
+		});
+	}
+});
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // ===========================Прогресс бар при сколле======================
@@ -359,48 +409,7 @@ let parallaxInstance = new Parallax(scene, {
 
 
 
-// Change language
-const select = document.getElementById('language-select');
-const elements = document.querySelectorAll('[data-key]');
 
-// 1. Функция перевода
-function applyLanguage() {
-	let lang = window.location.hash.replace('#', '').toLowerCase();
-
-	// Проверка существования языка
-	if (!translations[lang]) {
-		lang = 'ru';
-		window.location.hash = lang;
-		return; // hashchange сработает снова и вызовет эту функцию
-	}
-
-	// Обновляем текст на странице
-	document.querySelectorAll('[data-key]').forEach(el => {
-		const key = el.getAttribute('data-key');
-		if (translations[lang][key]) {
-			el.textContent = translations[lang][key];
-		}
-	});
-
-	// Синхронизируем реальный селект
-	const realSelect = document.querySelector('#language-select');
-	if (realSelect) {
-		realSelect.value = lang;
-		// ВАЖНО: перерисовываем кастомный селект, чтобы в заголовке был нужный текст
-		select_item(realSelect);
-	}
-}
-
-// 2. Слушаем изменения
-window.addEventListener('hashchange', applyLanguage);
-
-// Слушаем выбор в селекте (теперь сработает благодаря dispatchEvent)
-document.querySelector('#language-select').addEventListener('change', function (e) {
-	window.location.hash = e.target.value;
-});
-
-// 3. Запуск при загрузке
-document.addEventListener('DOMContentLoaded', applyLanguage);
 
 // Theme dark/light
 let togButton = document.querySelector("#toggle-bg");
@@ -819,105 +828,86 @@ document.querySelectorAll('.nav-portfolio__link').forEach(link => {
 // Первый запуск
 updatePortfolio();
 
+let validationReg = null; // Глобальная переменная для экземпляра
 
-// form
-const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+function initValidation(lang) {
+	const form = document.getElementById('form');
+	const submitBtn = form?.querySelector('button[type="submit"]');
+	const success = document.querySelector('.callback__success');
 
-form.addEventListener('submit', async (e) => {
-	e.preventDefault();
+	// Если валидатор уже существует, уничтожаем его перед созданием нового
+	if (validationReg) {
+		validationReg.destroy();
+	}
 
-	const formData = new FormData(form);
-	formData.append("access_key", "010b7410-2bb3-49ae-ada3-4a2aefbb5685");
-
-	const originalText = submitBtn.textContent;
-	submitBtn.textContent = "Sending...";
-	submitBtn.disabled = true;
-
-	try {
-		const object = Object.fromEntries(formData);
-		const json = JSON.stringify(object);
-
-		const response = await fetch("https://api.web3forms.com/submit", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				"Accept": "application/json"
-			},
-			body: json
+	if (form) {
+		validationReg = new JustValidate(form, {
+			errorFieldCssClass: '_error',
+			errorLabelCssClass: 'form-error-message',
+			errorLabelStyle: {},
 		});
 
-		const result = await response.json();
+		validationReg
+			.addField('#inputFirstName', [
+				{ rule: 'required', errorMessage: translations.errorRequired[lang] }
+			])
+			.addField('#inputEmail', [
+				{ rule: 'required', errorMessage: translations.errorRequired[lang] },
+				{ rule: 'email', errorMessage: translations.errorEmail[lang] }
+			])
+			.addField('#textarea', [
+				{ rule: 'required', errorMessage: translations.errorRequired[lang] },
+				{ rule: 'minLength', value: 10, errorMessage: translations.errorMinLength[lang] }
+			])
+			.onSuccess(async (event) => {
+				// 1. Берем форму напрямую по ID
+				const formElement = document.getElementById('form');
+				const formData = new FormData(formElement);
 
-		if (response.status === 200) {
-			alert("Сообщение успешно отправлено!");
-			form.reset(); // Очистит поля
-		} else {
-			alert("Ошибка: " + result.message);
-		}
-	} catch (error) {
-		console.log(error);
-		alert("Something went wrong. Please try again.");
-	} finally {
-		submitBtn.textContent = originalText;
-		submitBtn.disabled = false;
-	}
-});
+				// 2. Добавляем ключ в FormData
+				formData.append("access_key", "010b7410-2bb3-49ae-ada3-4a2aefbb5685");
 
-//QUANTITY
-let quantityButtons = document.querySelectorAll('.quantity__button');
-if (quantityButtons.length > 0) {
-	for (let index = 0; index < quantityButtons.length; index++) {
-		const quantityButton = quantityButtons[index];
-		quantityButton.addEventListener("click", function (e) {
-			let value = parseInt(quantityButton.closest('.quantity').querySelector('input').value);
-			if (quantityButton.classList.contains('quantity__button_plus')) {
-				value++;
-			} else {
-				value = value - 1;
-				if (value < 1) {
-					value = 1
+				const submitBtn = formElement.querySelector('button[type="submit"]');
+				const originalText = translations.send[lang];
+				submitBtn.textContent = translations.sending[lang];
+				submitBtn.disabled = true;
+
+				try {
+					// 3. ОТПРАВЛЯЕМ БЕЗ JSON И БЕЗ HEADERS
+					const response = await fetch("https://api.web3forms.com/submit", {
+						method: "POST",
+						body: formData,
+					});
+
+					const result = await response.json();
+
+					// Внутри initValidation -> onSuccess:
+					if (result.success) {
+						formElement.reset(); // Очищаем форму
+
+						// 1. Открываем попап через твою систему
+						// 'success' превратится в поиск класса .popup_success
+						popup_open('success');
+
+						// 2. Автозакрытие через 5 секунд (используем твою функцию закрытия)
+						setTimeout(() => {
+							const successPopup = document.querySelector('.popup_success._active');
+							if (successPopup) {
+								popup_close(successPopup);
+							}
+						}, 3000);
+					} else {
+						alert("Ошибка сервера: " + result.message);
+					}
+				} catch (error) {
+					console.error("Детальная ошибка:", error);
+					alert("Something went wrong. Проверьте соединение.");
+				} finally {
+					submitBtn.textContent = originalText;
+					submitBtn.disabled = false;
 				}
-			}
-			quantityButton.closest('.quantity').querySelector('input').value = value;
-		});
-	}
-}
+			});
 
-//RANGE
-const priceSlider = document.querySelector('.price-filter__slider');
-if (priceSlider) {
-
-	let textFrom = priceSlider.getAttribute('data-from');
-	let textTo = priceSlider.getAttribute('data-to');
-
-	noUiSlider.create(priceSlider, {
-		start: [0, 200000],
-		connect: true,
-		tooltips: [wNumb({ decimals: 0, prefix: textFrom + ' ' }), wNumb({ decimals: 0, prefix: textTo + ' ' })],
-		range: {
-			'min': [0],
-			'max': [200000]
-		}
-	});
-
-	/*
-	const priceStart = document.getElementById('price-start');
-	const priceEnd = document.getElementById('price-end');
-	priceStart.addEventListener('change', setPriceValues);
-	priceEnd.addEventListener('change', setPriceValues);
-	*/
-
-	function setPriceValues() {
-		let priceStartValue;
-		let priceEndValue;
-		if (priceStart.value != '') {
-			priceStartValue = priceStart.value;
-		}
-		if (priceEnd.value != '') {
-			priceEndValue = priceEnd.value;
-		}
-		priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
 	}
 }
 // Dynamic Adapt v.1
@@ -1161,3 +1151,4 @@ document.addEventListener('keydown', function (e) {
 		popup_close();
 	}
 });
+

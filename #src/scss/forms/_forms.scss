@@ -1,0 +1,107 @@
+@use "../vars" as *;
+
+//<FORM ()>=====
+
+.form {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 38px 20px;
+	max-width: 720px;
+	margin: 0 auto;
+	padding-top: 15px;
+	@media (max-width: ($md3 + px)) {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 32px 0;
+		padding-top: 20px;
+	}
+	&__line {
+		position: relative;
+		&:nth-child(-n + 4) {
+			grid-column: auto / span 1;
+		}
+		grid-column: auto / span 2;
+		@media (max-width: ($md3 + px)) {
+			grid-column: auto / span 1;
+		}
+	}
+	.bt {
+		width: 50%;
+		grid-column: auto / span 2;
+		margin: 0 auto;
+		@media (max-width: ($md3 + px)) {
+			grid-column: auto / span 1;
+			width: 100%;
+		}
+	}
+}
+.form-label {
+	margin-bottom: 8px;
+	margin-left: 4px;
+	display: block;
+	font-weight: 500;
+}
+.form-error-message {
+	color: var(--wc-danger);
+	position: absolute;
+	padding-left: 6px;
+	padding-top: 4px;
+	font-size: 14px;
+	top: 100%;
+}
+.form__line:has([required]) .form-label::after {
+	content: "*";
+	padding-inline: 0.25em;
+	color: var(--wc-danger);
+}
+
+.form-success {
+	// .form-success__ic
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	@media (max-width: ($md4 + px)) {
+		gap: 12px;
+	}
+	&__ic {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--wc-primary);
+		font-size: 48px;
+		width: 65px;
+		height: 65px;
+		border: 4px solid var(--wc-primary);
+		border-radius: 50%;
+		@media (max-width: ($md4 + px)) {
+			font-size: 36px;
+			width: 55px;
+			height: 55px;
+		}
+	}
+
+	// .form-success__title
+
+	&__title {
+		margin-bottom: 5px;
+		margin-top: 5px;
+		font-size: 24px;
+		font-weight: 500;
+		@media (max-width: ($md4 + px)) {
+			font-size: 20px;
+		}
+	}
+
+	// .form-success__text
+
+	&__text {
+		font-size: 18px;
+		text-align: center;
+		width: 85%;
+		line-height: 125%;
+		@media (max-width: ($md4 + px)) {
+			font-size: 16px;
+			width: 100%;
+		}
+	}
+}

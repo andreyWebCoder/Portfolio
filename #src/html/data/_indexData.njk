@@ -251,3 +251,41 @@
 		icon: '_ic-linkedin'
 	}
 ] %}
+
+{% set inputsData = [
+	{
+		keyLabel: 'labelName',
+		keyInput: 'placeholderName',
+		forId: 'inputFirstName',
+		type: 'text',
+		name: 'first name',
+		required: true
+	}, {
+		keyLabel: 'labelLastName',
+		keyInput: 'placeholderLastName',
+		forId: 'inputLastName',
+		type: 'text',
+		name: 'last name'
+	}, {
+		keyLabel: 'labelEmail',
+		keyInput: 'placeholderEmail',
+		forId: 'inputEmail',
+		type: 'email',
+		name: 'email',
+		required: true
+	}, {
+		keyLabel: 'labelTitle',
+		keyInput: 'placeholderTitle',
+		forId: 'inpuTitle',
+		type: 'text',
+		name: 'title'
+	}, {
+		keyLabel: 'labelMess',
+		keyInput: 'placeholderMessage',
+		forId: 'textarea',
+		rows: '5',
+		name: 'message',
+		textarea: true,
+		required: true
+	}
+] %}

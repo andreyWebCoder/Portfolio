@@ -88,7 +88,6 @@
 											<div class="card__label title-card">
 												<span>{{ item.label }}</span>
 											</div>
-											<p class="card__text">{{ item.text }}</p>
 											<a href="{{ item.link }}"  
 												class="bt bt-sm _ic-top-right{{' ' + '_popup-link' if item.popup }}"
 												{% if not item.popup %}
@@ -109,7 +108,7 @@
 				<section id="about-page" class="page__about about">
 					<div class="about__container _container">
 						<h2 class="about__title title" data-key="titleAbout">Обо мне</h2>
-						<p class="about__label"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
+						<p class="about__label" data-key="textAbout"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
 						<div class="about__grid">
 							{% for item in data.aboutItems %}
 								<div class="item-about{{' item-about--large' if  item.lg}}">

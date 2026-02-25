@@ -281,15 +281,20 @@ function _is_hidden(el) {
 }
 const translations = {
 	// titles
+	titleHero: { ru: "Привет, я <br/> Шупик Андрей", en: "Hi, I am <br/> Shupyk Andrii", ua: "Привіт, я <br/> Шупик Андрій" },
 	titleWork: { ru: "Мои проекты", en: "My projects", ua: "Мої проекти" },
 	titleAbout: { ru: "Обо мне", en: "About me", ua: "Про мене" },
 	titleForm: { ru: "Написать письмо", en: "Send mail", ua: "Написати листа" },
+
+	// text, labels
+	labelHero: { ru: "UI-розработчик (HTML, CSS, JavaScript, верстка)", en: "UI Developer (HTML, CSS, JavaScript)", ua: "UI-розробник (HTML, CSS, JavaScript, верстка)" },
+	textAbout: { ru: "Здравствуйте меня зовут Андрей, я UI-розработчик / верстальщик сайтов. Приветствую Вас на моем сайте.", en: "Hello, my name is Andrey, I am a UI developer (HTML, CSS, JavaScript). Welcome to my site.", ua: "Здравствуйте мене звати Андрій я UI-розробник / верстальник сайтів. Вітаю вас на моєму сайті" },
 
 	// header nav links
 	headerNav1: { ru: "Проекты", en: "Projects", ua: "Проекти" },
 	headerNav2: { ru: "Обо мне", en: "About me", ua: "Про мене" },
 	headerNav3: { ru: "Контакты", en: "Contacts", ua: "Контакти" },
-	headerNav4: { ru: "Написать", en: "Feedback", ua: "Написати" },
+	headerNav4: { ru: "Написать", en: "Message", ua: "Написати" },
 
 	// filters nav links
 	filtersNav1: { ru: "Все", en: "All", ua: "Все" },
@@ -325,7 +330,10 @@ const translations = {
 
 	// form success
 	successTitle: { ru: "Спасибо!", en: "Thank you!", ua: "Дякуємо!" },
-	successText: { ru: "Ваше сообщение успешно отправлено. Я с вами свяжусь в течении 24 часов.", en: "Your message has been sent successfully. I will contact you within 24 hours.", ua: "Ваше повідомлення успішно надіслано. Я з вами звяжусь на протязі 24 годин." }
+	successText: { ru: "Ваше сообщение успешно отправлено. Я с вами свяжусь в течении 24 часов.", en: "Your message has been sent successfully. I will contact you within 24 hours.", ua: "Ваше повідомлення успішно надіслано. Я з вами звяжусь на протязі 24 годин." },
+
+	// buttons
+	downloadHero: { ru: "Загрузить CV", en: "Download CV", ua: "Завантажити CV" },
 };
 
 
@@ -345,7 +353,7 @@ function applyLanguage() {
 	}
 
 	// Переводим все элементы с атрибутом data-key
-	document.querySelectorAll('[data-key]').forEach(el => {
+	elements.forEach(el => {
 		const key = el.getAttribute('data-key');
 
 		if (translations[key] && translations[key][lang]) {
@@ -356,7 +364,7 @@ function applyLanguage() {
 				el.placeholder = translatedText;
 			} else {
 				// Для остальных элементов меняем текстовый контент
-				el.textContent = translatedText;
+				el.innerHTML = translatedText;
 			}
 		}
 	});

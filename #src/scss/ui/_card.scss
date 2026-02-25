@@ -83,11 +83,11 @@
 		height: 100%;
 		text-align: center;
 		background-color: color-mix(in srgb, var(--wc-bg-body), transparent 10%);
-		padding: 16px 8px;
+		padding: 32px 16px;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start;
-		gap: 24px;
+		justify-content: center;
+		gap: 32px;
 		align-items: center;
 		transition: all 0.5s ease 0s;
 		visibility: hidden;
@@ -96,14 +96,11 @@
 		@media (max-width: ($md1 + px)) {
 			position: static;
 			padding: 8px;
-			gap: 18px;
+			gap: 20px;
 			visibility: visible;
 			opacity: 1;
 			transform: scale(1);
 			height: auto;
-		}
-		.bt {
-			margin-top: auto;
 		}
 	}
 

@@ -100,9 +100,10 @@
 		pointer-events: none;
 		background: color-mix(in srgb, var(--wc-text-color), transparent 100%);
 	}
-	@media (max-width: ($md3 + px)) {
-		width: 60px;
-		height: 60px;
+
+	&.bt-lg {
+		width: 56px;
+		height: 56px;
 		font-size: 20px;
 		&::before {
 			font-size: 32px;
@@ -121,7 +122,6 @@
 		z-index: 5;
 		background-color: transparent;
 		span {
-			transition: all 0.3s ease 0s;
 			top: 50%;
 			left: 0px;
 			position: absolute;
@@ -129,6 +129,11 @@
 			height: 2px;
 			background-color: var(--wc-text-color);
 			border-radius: 36px;
+			transition:
+				transform 0.25s ease 0.25s,
+				top 0.25s ease 0.25s,
+				bottom 0.25s ease 0.25s,
+				width 0.25s ease 0s;
 			&:not(:first-child, :last-child) {
 				left: 50%;
 				width: calc(100% - 10px);
@@ -144,7 +149,7 @@
 		}
 		&._active {
 			span {
-				transform: scale(0);
+				// transform: scale(0);
 				&:first-child {
 					transform: rotate(-45deg);
 					top: calc(50% - 1px);
@@ -152,6 +157,9 @@
 				&:last-child {
 					transform: rotate(45deg);
 					bottom: calc(50% - 1px);
+				}
+				&:nth-child(2) {
+					width: 0;
 				}
 			}
 		}

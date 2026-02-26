@@ -44,7 +44,7 @@ const translations = {
 	filtersNav2: { ru: "Лендинги", en: "Landing pages", ua: "Лендінги" },
 	filtersNav3: { ru: "Многостраничные сайты", en: "Multi page sites", ua: "Багатосторінкові сайти" },
 	filtersNav4: { ru: "Анимации Css, Js", en: "Animations CSS, JS ", ua: "Анімації CSS, JS " },
-	filtersNav5: { ru: "jQuery", en: "jQuery", ua: "jQuery" },
+	filtersNav5: { ru: "Блоки", en: "Blocks", ua: "Блоки" },
 
 	// pagination
 	paginPrev: { ru: "Предыдущая", en: "Previous", ua: "Попередня" },

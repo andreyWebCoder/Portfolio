@@ -325,7 +325,7 @@ const translations = {
 	filtersNav2: { ru: "Лендинги", en: "Landing pages", ua: "Лендінги" },
 	filtersNav3: { ru: "Многостраничные сайты", en: "Multi page sites", ua: "Багатосторінкові сайти" },
 	filtersNav4: { ru: "Анимации Css, Js", en: "Animations CSS, JS ", ua: "Анімації CSS, JS " },
-	filtersNav5: { ru: "jQuery", en: "jQuery", ua: "jQuery" },
+	filtersNav5: { ru: "Блоки", en: "Blocks", ua: "Блоки" },
 
 	// pagination
 	paginPrev: { ru: "Предыдущая", en: "Previous", ua: "Попередня" },
@@ -518,11 +518,12 @@ document.querySelector('.menu__list').addEventListener('click', (e) => {
 });
 
 const goTop = document.querySelector(".bt-top");
-const screenHeight = document.documentElement.clientHeight;
+const screenHeight = document.documentElement.clientHeight / 2;
 
 window.addEventListener("scroll", () => {
 	// Используем toggle для лаконичности
-	goTop.classList.toggle("_active", window.scrollY > screenHeight);
+
+	goTop.classList.toggle("_active", window.scrollY > screenHeight * 0.5);
 });
 
 goTop.addEventListener("click", () => {

@@ -1,23 +1,18 @@
-//<МИКСИНЫ>=
 @use "mixins";
-//<Подключаем шрифты>
+// <Fonts>
 @use "fonts";
 @use "icons";
 
-//<ПЕРЕМЕННЫЕ>
+//<Varialables>
 @use "root";
 @use "vars";
-//</ПЕРЕМЕННЫЕ>
 
-//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=
+//<Globall>=
 @use "null";
-
-//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=
 @use "globall";
 @use "container";
-//<ОСНОВНАЯ СЕТКА>
-//</ОСНОВНАЯ СЕТКА>
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
+
+//<Include UI, form styles>
 @use "forms/forms";
 @use "forms/select";
 @use "forms/input";
@@ -29,9 +24,8 @@
 @use "ui/badge";
 @use "ui/popup";
 @use "ui";
-//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
 
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
+//<Include header, footer + sections styles>
 @use "header";
 @use "footer";
 @use "sections/hero";
@@ -39,5 +33,6 @@
 @use "sections/about";
 @use "sections/contacts.scss";
 @use "sections/form";
+
+//<Include theme>
 @use "theme/theme";
-//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>

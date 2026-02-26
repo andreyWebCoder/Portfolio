@@ -175,6 +175,11 @@
 	background: color-mix(in srgb, var(--wc-text-color), transparent 92%);
 	border: 1px solid color-mix(in srgb, var(--wc-gray-600), transparent 50%);
 	color: var(--wc-gray-600);
+	transform: scale(0);
+	transition: transform 0.3s ease 0s;
+	&._active {
+		transform: scale(1);
+	}
 	@media (any-hover: hover) {
 		&:hover {
 			color: var(--wc-white);

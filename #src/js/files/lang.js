@@ -20,7 +20,10 @@ const translations = {
 	aveCardTitleLookbook: { ru: "Обзоры товаров", en: "Product reviews", ua: "Огляди товарів" },
 	aveCardTitleLokal: { ru: "Местные магазины", en: "Local stores", ua: "Місцеві магазини" },
 	aveCardTitleForm: { ru: "Форма регистрации", en: "Registration form", ua: "Форма реєстрації" },
-
+	// --------
+	uzbCardTitleHome: { ru: "Главная", en: "Homepage", ua: "Головна" },
+	uzbCardTitleMuvi: { ru: "Фильм", en: "Muvi", ua: "Кіно" },
+	uzbCardTitleReg: { ru: "Регистрация", en: "Registration", ua: "Регістрація" },
 	// card about text
 	aboutHtml: {
 		ru: "Html код валидный, структурированный . Применяю: блочную верстку, семантику, методологию BEM. Использую шаблонизатор для Html Nunjucks.", en: "Valid, structured HTML code. I apply block layout, semantics, and BEM methodology. I use Nunjucks as an HTML templating engine.", ua: "HTML - код валідний, структурований.Застосовую: блочну верстку, семантику, методологію BEM.Використовую шаблонізатор для HTML Nunjucks."

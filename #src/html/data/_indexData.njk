@@ -46,10 +46,10 @@
 		img: {src:'img/portfolio/grc.jpg', alt:'Grc'},
 		link:'https://andreywebcoder.github.io/grc/'
 	},{	
-		classes: 'many-pages',
-		label: 'Uzb',
-		img: {src:'img/portfolio/uzb-home.jpg', alt:'Uzb'},
-		link:'https://andreywebcoder.github.io/Uzb-five-page/'
+		classes: 'blocks',
+		label: 'Table',
+		img: {src:'img/portfolio/table-scroll.jpg', alt:'Table'},
+		link:'https://andreywebcoder.github.io/gorizontal-scroll-table/'
 	},{	
 		classes: 'lending',
 		label: 'T-zeez tje',
@@ -57,14 +57,15 @@
 		link:'https://andreywebcoder.github.io/Test-t-zeez-tje/'
 	},{	
 		classes: 'blocks',
-		label: 'Table',
-		img: {src:'img/portfolio/table-scroll.jpg', alt:'Table'},
-		link:'https://andreywebcoder.github.io/gorizontal-scroll-table/'
-	},{	
-		classes: 'blocks',
 		label: 'Alef',
 		img: {src:'img/portfolio/alef.jpg', alt:'alef'},
 		link:'https://andreywebcoder.github.io/Alef/'
+	},{	
+		classes: 'many-pages',
+		label: 'Uzb',
+		img: {src:'img/portfolio/uzb-home.jpg', alt:'Uzb'},
+		link:'#uzb',
+		popup:true
 	},{	
 		classes: 'blocks animations',
 		label: 'Full cyrcle',
@@ -103,7 +104,7 @@
 		link:'https://andreywebcoder.github.io/meetimg-test/#'
 	}	
 ] %}
-{% set cardPrevave = [
+{% set cardPrevAve = [
 	{
 		title: 'Главная',
 		img: 'img/portfolio/ave-home.jpg',
@@ -142,6 +143,29 @@
 		link: 'https://andreywebcoder.github.io/avenue-fashion/avenue-fashion/register'
 	}
 ] %}
+
+{% set cardPrevUzb = [
+	{
+		title: 'Главная',
+		img: 'img/portfolio/uzb-home.jpg',
+		alt: 'screenshot uzb home',
+		key: 'uzbCardTitleHome',
+		link: 'https://andreywebcoder.github.io/Uzb/Uzb/'
+	},{
+		title: 'Фильмы',
+		img: 'img/portfolio/uzb-muvi.jpg',
+		alt: 'screenshot uzb muvi',
+		key: 'uzbCardTitleMuvi',
+		link: 'https://andreywebcoder.github.io/Uzb/Uzb/muvi'
+	},{
+		title: 'Регистрация',
+		img: 'img/portfolio/uzb-registration.jpg',
+		alt: 'screenshot uzb registration',
+		key: 'uzbCardTitleReg',
+		link: 'https://andreywebcoder.github.io/Uzb/Uzb/registration'
+	}
+] %}
+
 {% set heroBadges = [
 	{
 		text: 'HTML 5',

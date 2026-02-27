@@ -1,45 +1,46 @@
 <header id="header" class="header _lp _anim _anim-no-hide">
-	<div class="header__content">
-		{% include "html/includes/_logo.njk" %}
-		<div class="header__menu menu">
-			<nav class="menu__body">
-				<ul class="menu__list">
-					<li class="menu__item">
-						<a href="#portfolio-page" class="menu__link" data-key="headerNav1">Мои работы</a>
-					</li>
-					<li class="menu__item">
-						<a href="#about-page" class="menu__link" data-key="headerNav2">Обо мне</a>
-					</li>
-					<li class="menu__item">
-						<a href="#contacts-page" class="menu__link" data-key="headerNav3">Контакты</a>
-					</li>
-					<li class="menu__item">
-						<a href="#form-page" class="menu__link" data-key="headerNav4">Форма</a>
-					</li>
-				</ul>
-				<div class="menu__btns-mob">
-					<a href="mailto:foresteraws@gmail.com" class="bt-ic bt-lg _ic-email" target="_blank"></a>
-					<a href="https://t.me/MarkupDev" class="bt-ic bt-lg _ic-telegram" target="_blank"></a>
-					<a href="https://github.com/andreyWebCoder?tab=repositories" class="bt-ic bt-lg _ic-github" target="_blank"></a>
-					<a href="https://www.linkedin.com/in/andrii-shupyk/" class="bt-ic bt-lg _ic-linkedin" target="_blank"></a>
-				</div>
-			</nav>
-		</div>
-		<div class="header__btns">
-			<button id="toggle-bg" type="button" class="bt-ic _ic-moon"></button>
-			<div>
-				<select id="language-select" class="header__select " name="lang">
-					<option value="ua" selected>UA</option>
-					<option value="en">EN</option>
-					<option value="ru">RU</option>
-				</select>
+	<div class="header__container _container">
+		<div class="header__content">
+			{% include "html/includes/_logo.njk" %}
+			<div class="header__menu menu">
+				<nav class="menu__body">
+					<ul class="menu__list">
+						<li class="menu__item">
+							<a href="#portfolio-page" class="menu__link" data-key="headerNav1">Мои работы</a>
+						</li>
+						<li class="menu__item">
+							<a href="#about-page" class="menu__link" data-key="headerNav2">Обо мне</a>
+						</li>
+						<li class="menu__item">
+							<a href="#contacts-page" class="menu__link" data-key="headerNav3">Контакты</a>
+						</li>
+						<li class="menu__item">
+							<a href="#form-page" class="menu__link" data-key="headerNav4">Форма</a>
+						</li>
+					</ul>
+					<div class="menu__btns-mob">
+						<a href="mailto:foresteraws@gmail.com" class="bt-ic bt-lg _ic-email" target="_blank"></a>
+						<a href="https://t.me/MarkupDev" class="bt-ic bt-lg _ic-telegram" target="_blank"></a>
+						<a href="https://github.com/andreyWebCoder?tab=repositories" class="bt-ic bt-lg _ic-github" target="_blank"></a>
+						<a href="https://www.linkedin.com/in/andrii-shupyk/" class="bt-ic bt-lg _ic-linkedin" target="_blank"></a>
+					</div>
+				</nav>
 			</div>
+			<div class="header__btns">
+				<button id="toggle-bg" type="button" class="bt-ic _ic-moon"></button>
+				<div>
+					<select id="language-select" class="header__select " name="lang">
+						<option value="ua" selected>UA</option>
+						<option value="en">EN</option>
+						<option value="ru">RU</option>
+					</select>
+				</div>
+			</div>
+			<button type="button"  class="menu__bt bt-menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 		</div>
-		<button type="button"  class="menu__bt bt-menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-
 	</div>
 </header>

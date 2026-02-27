@@ -28,8 +28,6 @@ const goTop = document.querySelector(".bt-top");
 const screenHeight = document.documentElement.clientHeight / 2;
 
 window.addEventListener("scroll", () => {
-	// Используем toggle для лаконичности
-
 	goTop.classList.toggle("_active", window.scrollY > screenHeight * 0.5);
 });
 

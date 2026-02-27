@@ -1,4 +1,4 @@
-// ===========================Прогресс бар при сколле======================
+// =========================== progress ======================
 const progress = document.querySelector('.progress');
 window.addEventListener('scroll', progressBar);
 function progressBar(e) {
@@ -8,7 +8,7 @@ function progressBar(e) {
 	progress.style.width = persent + '%';
 	progress.classList.add('_scroll');
 }
-// ===========================Прогресс бар при сколле======================
+// =========================== progress ======================
 
 let scene = document.getElementById("scene");
 let parallaxInstance = new Parallax(scene, {

@@ -1,5 +1,5 @@
 const container = document.querySelector('.portfolio__content');
-// Забираем карточки из DOM и сразу превращаем в массив объектов
+
 const allCards = Array.from(document.querySelectorAll('.portfolio__card'));
 const itemsPerPage = 6;
 let currentPage = 1;
@@ -30,16 +30,15 @@ function updatePortfolio(isClick = false) {
 	container.innerHTML = '';
 
 	cardsToShow.forEach((card, index) => {
-		// Сбрасываем старые анимации перед вставкой
+
 		card.classList.remove('animate');
 		card.style.animationDelay = '';
 
 		container.appendChild(card);
 
-		// Запускаем новую анимацию
 		setTimeout(() => {
-			// Эффект появления по очереди (лесенкой)
-			card.style.animationDelay = `${index * 0.05}s`; // 0.05s — более быстрый и динамичный темп
+
+			card.style.animationDelay = `${index * 0.05}s`;
 			card.classList.add('animate');
 		}, 10);
 	});
@@ -47,13 +46,11 @@ function updatePortfolio(isClick = false) {
 	if (isClick) {
 		const section = document.querySelector('.page__portfolio');
 		if (section) {
-			// 1. Получаем высоту шапки (замени .header на свой класс)
+
 			const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
 
-			// 2. Считаем позицию секции относительно верха страницы
 			const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
 
-			// 3. Вычитаем высоту шапки и добавляем небольшой запас (например, 20px)
 			window.scrollTo({
 				top: sectionTop - headerHeight - 20,
 				behavior: 'smooth'
@@ -66,7 +63,7 @@ function updatePortfolio(isClick = false) {
 
 
 function renderPagination(totalItems) {
-	totalItems = Number(totalItems) || 0; // 🔥 ВАЖНО
+	totalItems = Number(totalItems) || 0;
 
 	let navWrapper = document.querySelector('.pagination-nav');
 
@@ -121,9 +118,6 @@ function renderPagination(totalItems) {
 	));
 }
 
-
-
-// Обработка клика по фильтрам категорий
 document.querySelectorAll('.nav-portfolio__link').forEach(link => {
 	link.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -131,10 +125,9 @@ document.querySelectorAll('.nav-portfolio__link').forEach(link => {
 		link.classList.add('active');
 
 		currentFilter = link.dataset.filter;
-		currentPage = 1; // Сброс на первую страницу
+		currentPage = 1;
 		updatePortfolio(true);
 	});
 });
 
-// Первый запуск
 updatePortfolio();

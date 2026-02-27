@@ -7,6 +7,11 @@
 	max-width: 720px;
 	margin: 0 auto;
 	padding-top: 15px;
+	transform: translateY(20%);
+	transition: transform 1s ease 0s;
+	&._active {
+		transform: translateY(0);
+	}
 	@media (max-width: ($md3 + px)) {
 		grid-template-columns: repeat(1, 1fr);
 		gap: 32px 0;

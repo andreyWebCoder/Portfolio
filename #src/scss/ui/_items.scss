@@ -9,6 +9,20 @@
 	border-radius: 12px;
 	background-color: color-mix(in srgb, var(--wc-secondary), transparent 90%);
 	box-shadow: 0 4px 6px 0 color-mix(in srgb, var(--wc-text-color), transparent 85%);
+	opacity: 0;
+	transition:
+		opacity 0.8s ease 0s,
+		transform 0.8s ease 0s;
+	&:nth-child(odd) {
+		transform: translateX(-105%);
+	}
+	&:nth-child(even) {
+		transform: translateX(105%);
+	}
+	&._active {
+		opacity: 1;
+		transform: translateX(0) !important;
+	}
 	@media (max-width: ($md3 + px)) {
 		gap: 16px;
 		padding: 16px 12px;

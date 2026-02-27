@@ -48,15 +48,18 @@
 						<div class="hero__body">
 							<div class="hero__content">
 								<div class="hero__info">
-									<h1 class="hero__title title" data-key="titleHero">Hi, I am <br> Shupyk Andrii</h1>
-									<div class="hero__label" data-key="labelHero">UI Developer (HTML, CSS, JavaScript)</div>
-									<a href="files/Profile.pdf" class="bt _ic-download"  download="CV UI Developer.pdf"  data-key="downloadHero">Download CV</a>
+									<h1 class="hero__title title _anim _anim-no-hide anim-text" >
+										<span data-key="titleHero"> Hi, I am <br> Shupyk Andrii</span></h1>
+									<div class="hero__label _anim _anim-no-hide anim-text" >
+										<span data-key="labelHero">UI Developer (HTML, CSS, JavaScript)</span>
+									</div>
+									<a href="files/Profile.pdf" class="bt _ic-download _anim _anim-no-hide " download="CV UI Developer.pdf" data-key="downloadHero">Download CV</a>
 								</div>
-								<div class="hero__img">
+								<div class="hero__img _anim _anim-no-hide ">
 									<img src="img/hero/man.svg" alt="young man sitting with a laptop and waving his hand">
 								</div>
 							</div>
-							<div class="hero__actions">
+							<div class="hero__actions _anim _anim-no-hide ">
 								{% for item in data.heroBadges %}
 									{{badge(item, 'hero__badge')}}
 								{% endfor %}
@@ -67,7 +70,9 @@
 				<!-- ===================portfolio============== -->
 				<section id="portfolio-page" class="page__portfolio portfolio">
 					<div class="portfolio__container _container">
-						<h2 class="portfolio__title title" data-key="titleWork"></h2>
+						<h2 class="portfolio__title title _anim _anim-no-hide anim-text">
+							<span data-key="titleWork"></span>
+						</h2>
 						<div class="portfolio__nav nav-portfolio">
 							<ul class="nav-portfolio__list">
 								{% for nav in data.navListData %}
@@ -77,7 +82,7 @@
 								{% endfor %}
 							</ul>
 						</div>
-						<div class="portfolio__content">
+						<div class="portfolio__content _anim _anim-no-hide ">
 							{% for item in data.portfolioItems %}
 								<div class="portfolio__card card {{item.classes}}">
 									<div class="card__item">
@@ -88,7 +93,7 @@
 											<div class="card__label title-card">
 												<span>{{ item.label }}</span>
 											</div>
-											<a href="{{ item.link }}"  
+											<a href="{{ item.link }}" 
 												class="bt bt-sm _ic-top-right{{' ' + '_popup-link' if item.popup }}"
 												{% if not item.popup %}
 												target="_blank"
@@ -109,11 +114,13 @@
 				<!-- ===================about============== -->
 				<section id="about-page" class="page__about about">
 					<div class="about__container _container">
-						<h2 class="about__title title" data-key="titleAbout">Обо мне</h2>
+						<h2 class="about__title title _anim _anim-no-hide anim-text">
+							<span data-key="titleAbout">Обо мне</span>
+						</h2>
 						<p class="about__label" data-key="textAbout"> Здравствуйте меня зовут Андрей, я Html верстальщик. Приветствую Вас на моем сайте.</p>
 						<div class="about__grid">
 							{% for item in data.aboutItems %}
-								<div class="item-about{{' item-about--large' if  item.lg}}">
+								<div class="item-about{{' item-about--large' if item.lg}} _anim _anim-no-hide ">
 									<div class="item-about__title title-card">
 										<span 
 										{% if item.keyTitle %}
@@ -174,11 +181,13 @@
 				<!-- ===================contacts============== -->
 				<section id="contacts-page" class="page__contacts contacts">
 					<div class="contacts__container _container">
-						<h2 class="contacts__title title title_white" data-key="titleContacts">Контакты</h2>
+						<h2 class="contacts__title title title_white _anim _anim-no-hide anim-text" >
+							<span data-key="titleContacts">Контакты</span>
+						</h2>
 						<p class="contacts__label" data-key="labelContacts">Свяжитесь со мной или подпишитесь на мои страницы в социальных сетях.</p>
 						<div class="contacts__links">
 							{% for item in data.contactsItems %}
-								<div class="contacts__item">
+								<div class="contacts__item _anim _anim-no-hide ">
 									<a href="{{item.href}}" class="contacts__link" target="_blank">
 										<i class="contacts__icon{{' ' + item.icon if item.icon}}"></i>
 										<span class="contacts__text">
@@ -194,14 +203,16 @@
 				<!-- =================== form section =================== -->
 				<section id="form-page" class="page__form form-page">
 					<div class="form-page__container _container">
-						<h2 class="form-page__title title" data-key="titleForm">Send mail</h2>
-						<form id="form" class="form" action="https://api.web3forms.com/submit" method="POST">
+						<h2 class="form-page__title title _anim _anim-no-hide anim-text" >
+							<span data-key="titleForm">Send mail</span>
+						</h2>
+						<form id="form" class="form _anim _anim-no-hide " action="https://api.web3forms.com/submit" method="POST">
 							{% for item in data.inputsData %}
 								<div class="form__line">
 									{{input(item)}}
 								</div>
 							{% endfor %}
-							<button class="bt bt-sm" type="submit"  data-key="send">Submit</button>
+							<button class="bt bt-sm" type="submit" data-key="send">Submit</button>
 						</form>
 					</div>
 				</section>

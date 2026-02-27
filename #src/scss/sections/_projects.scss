@@ -28,7 +28,7 @@
 	// .portfolio__content
 
 	&__content {
-		--gap: 10px;
+		--gap: 16px;
 		column-count: 3;
 		column-gap: var(--gap);
 		margin-bottom: calc(var(--gap) * -1);
@@ -37,6 +37,11 @@
 		}
 		@media (max-width: ($md4 + px)) {
 			column-count: 1;
+		}
+		&._active {
+			.portfolio__card {
+				animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+			}
 		}
 	}
 

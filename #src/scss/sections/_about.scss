@@ -2,16 +2,18 @@
 //=========================About section====================
 .about {
 	position: relative;
-	overflow: hidden;
-	padding: 60px 0px 60px 0px;
+	padding: 40px 0px 40px 0px;
 	@media (max-width: ($md3 + px)) {
-		padding: 40px 0px 40px 0px;
+		padding: 20px 0px 20px 0px;
 	}
 	// .about__container
 
 	&__container {
 		position: relative;
 		z-index: 1;
+		overflow: hidden;
+		padding-top: 20;
+		padding-bottom: 20px;
 	}
 
 	// .about__title
@@ -30,6 +32,8 @@
 		font-weight: 700;
 		letter-spacing: 2px;
 		color: var(--wc-text-color);
+		&._active {
+		}
 		@media (max-width: #{($md3 + px)}) {
 			font-size: 14px;
 		}

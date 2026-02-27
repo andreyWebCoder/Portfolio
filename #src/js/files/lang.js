@@ -1,4 +1,5 @@
 const translations = {
+	titleHead: { ru: "Портфолио", en: "Portfolio", ua: "Портфоліо" },
 	// titles
 	titleHero: { ru: "Привет, я <br/> Шупик Андрей", en: "Hi, I am <br/> Shupyk Andrii", ua: "Привіт, я <br/> Шупик Андрій" },
 	titleWork: { ru: "Мои проекты", en: "My projects", ua: "Мої проекти" },
@@ -89,52 +90,47 @@ const select = document.getElementById('language-select');
 const elements = document.querySelectorAll('[data-key]');
 
 function applyLanguage() {
-	// Получаем язык из хеша, по умолчанию 'ru'
+
 	let lang = window.location.hash.replace('#', '').toLowerCase() || 'en';
 
-	// Проверка: существует ли выбранный язык в нашей базе (проверяем по любому ключу, например 'send')
 	if (!translations.send[lang]) {
 		lang = 'en';
 		window.location.hash = lang;
 		return;
 	}
+	document.documentElement.lang = lang;
 
-	// Переводим все элементы с атрибутом data-key
 	elements.forEach(el => {
 		const key = el.getAttribute('data-key');
 
 		if (translations[key] && translations[key][lang]) {
 			const translatedText = translations[key][lang];
 
-			// Если это поле ввода, меняем placeholder
+			//  placeholder
 			if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
 				el.placeholder = translatedText;
 			} else {
-				// Для остальных элементов меняем текстовый контент
+				// Other elems
 				el.innerHTML = translatedText;
 			}
 		}
 	});
 
-	// Синхронизируем селект и кастомные элементы управления (если есть)
 	const realSelect = document.querySelector('#language-select');
 	if (realSelect) {
 		realSelect.value = lang;
-		// Если используется кастомный селект (из вашего кода)
 		if (typeof select_item === 'function') {
 			select_item(realSelect);
 		}
 	}
-
-	// ВАЖНО: Пересоздаем валидацию с текстами на новом языке
 	initValidation(lang);
 }
 
-// 3. Слушатели событий
+
 window.addEventListener('hashchange', applyLanguage);
 
 document.addEventListener('DOMContentLoaded', () => {
-	applyLanguage(); // Запуск при загрузке страницы
+	applyLanguage();
 
 	const langSelect = document.querySelector('#language-select');
 	if (langSelect) {

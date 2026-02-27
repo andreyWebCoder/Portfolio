@@ -15,10 +15,6 @@ let parallaxInstance = new Parallax(scene, {
 	hoverOnly: true,
 });
 
-
-
-
-
 // Theme dark/light
 let togButton = document.querySelector("#toggle-bg");
 togButton.addEventListener("click", (event) => {
@@ -31,38 +27,3 @@ togButton.addEventListener("click", (event) => {
 	addDarkClass();
 });
 addDarkClass();
-
-//=================
-//Menu
-// let btnMenu = document.querySelector(".bt-menu");
-// if (btnMenu != null) {
-// 	let delay = 500;
-// 	let menuBody = document.querySelector(".menu");
-// 	let menuLinks = document.querySelectorAll(".menu__link");
-// 	if (menuLinks.length > 0) {
-// 		menuLinks.forEach(menuLink => {
-// 			menuLink.addEventListener("click", menuClose);
-// 		});
-// 		function menuClose(e) {
-// 			if (btnMenu.classList.contains("_active")) {
-// 				body_lock(delay);
-// 				btnMenu.classList.remove("_active");
-// 				menuBody.classList.remove("_active");
-// 			}
-// 		}
-// 	}
-// 	btnMenu.addEventListener("click", function (e) {
-// 		if (unlock) {
-// 			body_lock(delay);
-// 			btnMenu.classList.toggle("_active");
-// 			menuBody.classList.toggle("_active");
-// 		}
-// 	});
-// };
-
-// function menu_close() {
-// 	let btnMenu = document.querySelector(".bt-menu");
-// 	let menuBody = document.querySelector(".menu");
-// 	btnMenu.classList.remove("_active");
-// 	menuBody.classList.remove("_active");
-// }

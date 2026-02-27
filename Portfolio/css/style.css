@@ -1849,6 +1849,7 @@ body.ie ._ibg img {
 .about {
   position: relative;
   padding: 40px 0px 40px 0px;
+  overflow: hidden;
 }
 @media (max-width: 767.98px) {
   .about {
